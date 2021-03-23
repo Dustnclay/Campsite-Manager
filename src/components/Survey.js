@@ -108,6 +108,7 @@ function Survey() {
 
     const submitButton = (event)=>{
         event.preventDefault()
+        axios.post('localhost:3000/form',{})
         setAnswers({
             location:'',collector:'',survey:'',groundDisturbance:'',disturbedArea:'',treesDamaged:'',nearWater:'',nearTrail:'',erosion:'',fireRings:'',improvements:'',contained:'',residential:'',trash:'',humanWaste:'',socialTrails:'',socialRoads:'',actionTrash:false,actionSign:false,actionRepair:false,actionFire:false,actionTaken:false,date:'',hours:'',notes:'', image:''})
             axios.post('https://reqres.in/api/users', answers)
@@ -272,12 +273,12 @@ console.log('answers:', answers)
             <label>Notes</label><br/>
             <input name='notes' placeholder='notes' onChange={eventHandler}></input><br/>
 
-            <label>Pictures taken</label>
-            <input name='image' type='image' onChange={eventHandler}></input><br/>
+            {/* <label>Pictures taken</label> */}
+            {/* <input name='image' type='input' alt='campImage' onChange={eventHandler}></input><br/> */}
 
             <Button disabled={buttonDisabled} color='warning'>Submit</Button>
 
-        </Form>
+        </Form> 
     )
 }
 
