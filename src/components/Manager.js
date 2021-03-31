@@ -7,44 +7,34 @@ function Manager () {
     const [campsites,useCampsites] = useState(null)
     const campArr = []
     const finalList = []
+    let unique =[]
     
     const dbURL = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form"
-
-    async function getCamps() {
-        // console.log("campArr",campArr[0])
-        console.log("unique", unique)
-        campArr[0].map(item => {
-        // console.log(item)
-        finalList.push(item.location)
-        console.log("finallist",finalList)
-    })
-    //    await axios.get(dbURL)
-    //     .then(res => {campArr.push(res.data)
-    //         console.log("axios return",campArr)
-
-    //     })
-    //     .catch(err => console.log(err))
-    }
-
+    
    axios.get(dbURL)
-        .then(res => {campArr.push(res.data)
-            // console.log("axios return",campArr)
-        })
+        .then(res => {campArr.push(res.data)})
         .catch(err => console.log(err))
 
+    async function getCamps() {
+        campArr[0].map(item => {
+        finalList.push(item.location)
+         })        
+        unique = [...new Set(finalList)]
+          console.log('uniquie',unique)
+    }
 
-
-
-    const unique = [...new Set(campArr[0])]
 
 
     return(
 
         <>
         <h1>Manager Page</h1>
-        {campArr.map(siteNo => {
+        <div>
+        {unique.map(siteNo => {
             <p>{siteNo}</p>
         })}
+        </div>
+
         <button onClick={getCamps} >get campsites</button>
         </>
     )
