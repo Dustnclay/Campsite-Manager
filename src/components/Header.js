@@ -1,5 +1,4 @@
 import React from 'react'
-import {Jumbotron,Card,CardImg} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
 

@@ -3,7 +3,7 @@ import {} from 'reactstrap';
 import Survey from './components/Survey'
 import Header from './components/Header'
 import Manager from './components/Manager'
-import {BrowserRouter as Router, Route,Switch,Link} from 'react-router-dom'
+import {BrowserRouter as Router, Route,Switch} from 'react-router-dom'
 
 
 
