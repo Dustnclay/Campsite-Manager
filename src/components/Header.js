@@ -1,5 +1,6 @@
 import React from 'react'
 import {Jumbotron,Card,CardImg} from 'reactstrap'
+import {Link} from 'react-router-dom'
 
 
 function Header () {
@@ -7,7 +8,16 @@ function Header () {
         <>
             <h1>
                 Campsite Manager
-            </h1>       
+            </h1>    
+            
+            <Link to="/survey" style={{marginLeft:'5%'}}>
+                Survey
+            </Link>   
+
+            <Link to="/manager"style={{marginLeft:'5%'}}>
+                Manager
+            </Link>
+
         </>
     )
 }

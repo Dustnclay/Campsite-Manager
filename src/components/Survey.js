@@ -88,31 +88,33 @@ function Survey() {
     const formSchema = yup.object().shape({
         location:yup.string().required("location required"),
         collector:yup.string().required("name required"),
-        survey:yup.mixed().oneOf(["re-survey","newSurvey"], 'survey question required'),
-        groundDisturbance:yup.mixed().oneOf(["site has recovered","vegetation is flattened but not permanently damaged","vegetation is worn away around fire place or center of activity","bare soil is exposed on most of site",], 'disturbance question required'),
-        disturbedArea:yup.mixed().oneOf(["1-5 sqft","5-10 sqft","10-25 sqft","25-50 sqft","more than 50 sqft"], "disturbed area question required"),
-        treesDamaged:yup.number().required('trees damaged question required'),
-        nearWater:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),
-        nearTrail:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),        
-        erosion:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),
-        fireRings:yup.number().required('fire rings question required'),
-        improvements:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),        
-        contained:yup.mixed().oneOf(["no","naturally contained by rocks/trees etc.","naturally contained by rocks/trees etc."],"You must choose to proceed"),
-        residential:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),
-        trash:yup.mixed().oneOf(["no","<1 Gal","1 to 5 Gals","1-2 Large Trash Bags","> 2 Trash Bags","truck load"],"You must choose to proceed"),
-        humanWaste:yup.mixed().oneOf(["no","1","2-5","more than 5"],'input required'),
-        socialTrail:yup.number().required('input required'),
-        socialRoad:yup.number().required('input required'),
-        date:yup.date().required('date required')
+        // survey:yup.mixed().oneOf(["re-survey","newSurvey"], 'survey question required'),
+        // groundDisturbance:yup.mixed().oneOf(["site has recovered","vegetation is flattened but not permanently damaged","vegetation is worn away around fire place or center of activity","bare soil is exposed on most of site",], 'disturbance question required'),
+        // disturbedArea:yup.mixed().oneOf(["1-5 sqft","5-10 sqft","10-25 sqft","25-50 sqft","more than 50 sqft"], "disturbed area question required"),
+        // treesDamaged:yup.number().required('trees damaged question required'),
+        // nearWater:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),
+        // nearTrail:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),        
+        // erosion:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),
+        // fireRings:yup.number().required('fire rings question required'),
+        // improvements:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),        
+        // contained:yup.mixed().oneOf(["no","naturally contained by rocks/trees etc.","naturally contained by rocks/trees etc."],"You must choose to proceed"),
+        // residential:yup.mixed().oneOf(["yes","no"],"You must choose to proceed"),
+        // trash:yup.mixed().oneOf(["no","<1 Gal","1 to 5 Gals","1-2 Large Trash Bags","> 2 Trash Bags","truck load"],"You must choose to proceed"),
+        // humanWaste:yup.mixed().oneOf(["no","1","2-5","more than 5"],'input required'),
+        // socialTrail:yup.number().required('input required'),
+        // socialRoad:yup.number().required('input required'),
+        // date:yup.date().required('date required')
     })
 
     const submitButton = (event)=>{
         event.preventDefault()
-        axios.post('localhost:3000/form',{})
-        setAnswers({
-            location:'',collector:'',survey:'',groundDisturbance:'',disturbedArea:'',treesDamaged:'',nearWater:'',nearTrail:'',erosion:'',fireRings:'',improvements:'',contained:'',residential:'',trash:'',humanWaste:'',socialTrails:'',socialRoads:'',actionTrash:false,actionSign:false,actionRepair:false,actionFire:false,actionTaken:false,date:'',hours:'',notes:'', image:''})
-            axios.post('https://reqres.in/api/users', answers)
-            .then( response => console.log(response))
+        axios.post('localhost:8000/form',answers)
+        .then( response => console.log(response))
+        .catch( err => console.log(err))
+        // setAnswers({
+        //     location:'',collector:'',survey:'',groundDisturbance:'',disturbedArea:'',treesDamaged:'',nearWater:'',nearTrail:'',erosion:'',fireRings:'',improvements:'',contained:'',residential:'',trash:'',humanWaste:'',socialTrails:'',socialRoads:'',actionTrash:false,actionSign:false,actionRepair:false,actionFire:false,actionTaken:false,date:'',hours:'',notes:'', image:''})
+        //     axios.post('https://reqres.in/api/users', answers)
+
     }
 
     const eventHandler = (event) => {
