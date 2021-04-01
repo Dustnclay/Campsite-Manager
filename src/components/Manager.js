@@ -8,8 +8,9 @@ class Manager extends Component {
     constructor(){
         super();
         this.state = {
-            siteArr:[]
-        };
+            siteArr:[],
+            currentSite:null
+            };
         this.url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form"
         this.getSites = this.getSites.bind(this);
         this.getNo = this.getNo.bind(this);
@@ -23,35 +24,31 @@ class Manager extends Component {
         const campArr = []
 
         let data = await axios.get(this.url)
-        // original
         .then(res => res.data.map(site => campArr.push(site.location)))
         .catch(err => console.log(err))
 
         this.state.siteArr = Array.from([...new Set(campArr)])
-
-        console.log("siteArr",this.state.siteArr)
         this.forceUpdate()
-        // this.state.siteArr.map(item => console.log(item))
     }
 
-    getNo (e) {
-        console.log(e)
+    getNo(e) {
+        this.setState({currentSite: e})
+        
     }
 
     render(){
         const {siteArr} = this.state;
-        console.log("sitearr",siteArr)
+        const {currentSite} = this.state;
         return(
-
             <>
             <h1>Manager Page</h1>
-             {siteArr && siteArr.map(item => {
+             {siteArr.map(item => {
                 return(
-                   <Link onClick={this.getNo(item)} to={"/manager/" + item}> {item} </Link> 
-                )
+                   <Link onClick={() => this.getNo(`${item}`)} key={item} to={ "/manager/"+ item}> {item} </Link> 
+                    )
                 })} 
-                <Route path={"/manager"}>
-                    <SitePage />
+                <Route path={`/manager/${currentSite}`}>
+                    <SitePage currentSite={currentSite}/>
                 </Route>
             </>
         )        
