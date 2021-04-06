@@ -1,66 +1,46 @@
 
-import React, {Component,useEffect} from "react"
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React, {Component,useEffect,useState} from "react"
 import axios from 'axios'
+import Chart from "./Chart"
 
 function SitePage(props) {
+
+    const [formData, setFormData] = useState([
+          {
+            name: 'Yes',
+            uv: 42,
+            name:1
+          },
+          {
+            name: 'No',
+            uv: 30,
+            name:2
+          },
+          {
+            name: 'N/a',
+            uv: 20,
+            name:3
+          }]           
+    )
        
     let db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
 
-    const data = [
-        {
-          name: 'Yes',
-          uv: 40,
-        //   pv: 2400,
-          amt: 2400,
-        },
-        {
-          name: 'No',
-          uv: 30,
-        //   pv: 1398,
-          amt: 2210,
-        },
-        {
-          name: 'N/a',
-          uv: 20,
-        //   pv: 9800,
-          amt: 2290,
-        }
-
-      ];
-
-    let forms = []
+    const forms = []
 
     useEffect(() => {
+        console.log("currentsSite",props.currentSite)
         axios.get(db_url + props.currentSite)
-        .then(res => console.log('axios',res.data))
+        .then(res => setFormData(res.data))
         .catch(err => console.log(err))
-        }
-    )
+        },[]    )
+  
 
     return(
         <>
-        <p>{props.currentSite}</p>
-        <BarChart
-      width={500}
-      height={300}
-      data={data}
-      margin={{
-        top: 5,
-        right: 30,
-        left: 20,
-        bottom: 5
-      }}
-    >
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="name" />
-      <YAxis />
-      <Tooltip />
-      <Legend />
-      <Bar dataKey="pv" fill="#8884d8" />
-      <Bar dataKey="uv" fill="#82ca9d" />
-      <Bar datakey="na" fill="#000000"/>
-    </BarChart>
+            {formData.map(form => {
+            
+            })}
+              <Chart form={formData}/>  
         </>
     )
 }
