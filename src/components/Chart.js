@@ -24,7 +24,7 @@ function Chart(props){
             <BarChart
     width={300}
     height={175}
-    data={datadistrurbance}
+    data={props.form}
     margin={{
       top: 5,
       right: 30,

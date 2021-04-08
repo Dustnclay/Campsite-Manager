@@ -27,7 +27,7 @@ const totalwork = []
 
     const forms = [
       {collector: "dusty",
-          contained: "no",
+          contained: "No",
           date: "2021-04-01",
           disturbedArea: "1-5 sqft",
           doneContainmentRepair: "false",
@@ -57,14 +57,87 @@ const totalwork = []
           survey: "newSurvey",
           trash: "no",
           treesDamaged: "-2",
-      }]
+      },{collector: "dusty",
+      contained: "N/a",
+      date: "2021-04-01",
+      disturbedArea: "1-5 sqft",
+      doneContainmentRepair: "false",
+      doneFireRingRemoval: "false",
+      doneSignageFix: "false",
+      doneTrashPickup: "true",
+      erosion: "yes",
+      fireRings: "1",
+      groundDisturbance: "site has recovered",
+      hours: "1",
+      humanWaste: "no",
+      id: 6,
+      image: "",
+      improvements: "yes",
+      location: "107",
+      nearTrail: "yes",
+      nearWater: "yes",
+      needContainmentRepair: "false",
+      needFireRingRemoval: "false",
+      needSignageFix: "false",
+      needTrashPickup: "true",
+      notes: "n/a",
+      residential: "yes",
+      siteDescription: "terrible",
+      socialRoad: "-4",
+      socialTrail: "2",
+      survey: "newSurvey",
+      trash: "no",
+      treesDamaged: "-2",
+  },{collector: "dusty",
+  contained: "Yes",
+  date: "2021-04-01",
+  disturbedArea: "1-5 sqft",
+  doneContainmentRepair: "false",
+  doneFireRingRemoval: "false",
+  doneSignageFix: "false",
+  doneTrashPickup: "true",
+  erosion: "yes",
+  fireRings: "1",
+  groundDisturbance: "site has recovered",
+  hours: "1",
+  humanWaste: "no",
+  id: 6,
+  image: "",
+  improvements: "yes",
+  location: "107",
+  nearTrail: "yes",
+  nearWater: "yes",
+  needContainmentRepair: "false",
+  needFireRingRemoval: "false",
+  needSignageFix: "false",
+  needTrashPickup: "true",
+  notes: "n/a",
+  residential: "yes",
+  siteDescription: "terrible",
+  socialRoad: "-4",
+  socialTrail: "2",
+  survey: "newSurvey",
+  trash: "no",
+  treesDamaged: "-2",
+}]
 
       const endresult = forms
 
-      // endresult.map(res => {if (res.contained == "no"){total.contained}})
+      endresult.map(
+        res => {
+          // if (res.contained == "No"){
+            total.contained.map(item => {
+              // console.log("item.name", item.name)
+              // console.log("res.name", res.contained)
+              if (item.name ==res.contained )
+                {item.uv += 1}
+            console.log("item",item)                
+            })  
+          // }
+        })
 
-      
-      console.log("supposed", total.contained)
+
+
 
     // useEffect(() => {
     //     console.log("currentsSite",props.currentSite)
@@ -80,7 +153,7 @@ const totalwork = []
             {/* {formData.map(form => {
             
             })} */}
-              {/* <Chart form={formData}/>   */}
+              <Chart form={total.contained}/>  
         </>
     )
 }
