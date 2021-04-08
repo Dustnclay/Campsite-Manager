@@ -137,18 +137,18 @@ console.log('answers:', answers)
             <label>Is this a New survey or Re-survey</label><br/>
             <select name="survey" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="newSurvey">New Survey</option>
-                <option value="re-survey">Re-survey</option>
+                <option value="NewSurvey">New Survey</option>
+                <option value="Re-survey">Re-survey</option>
             </select><br/>
 
             <h3>Impact Rating</h3><br/>
             <label>Ground Disturbance Rating</label><br/>
             <select name="groundDisturbance" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="site has recovered">Site has Recovered</option>
-                <option value="vegetation is flattened but not permanently damaged">vegetation is flattened but not permanently damaged</option>
-                <option value="vegetation is worn away around fire place or center of activity">vegetation is worn away around fire place or center of activity</option>
-                <option value="bare soil is exposed on most of site">bare soil is exposed on most of site</option>
+                <option value="Site has recovered">Site has Recovered</option>
+                <option value="Vegetation is flattened but not permanently damaged">vegetation is flattened but not permanently damaged</option>
+                <option value="Vegetation is worn away around fire place or center of activity">vegetation is worn away around fire place or center of activity</option>
+                <option value="Bare soil is exposed on most of site">bare soil is exposed on most of site</option>
             </select><br/>
 
             <label>Disturbed Area Rating in square footage</label><br/>
@@ -158,7 +158,7 @@ console.log('answers:', answers)
                 <option value="5-10 sqft">5-10 sqft</option>
                 <option value="10-25 sqft">10-25 sqft</option>
                 <option value="25-50 sqft">25-50 sqft</option>
-                <option value="more than 50 sqft">more than 50 sqft</option>
+                <option value="More than 50 sqft">more than 50 sqft</option>
             </select><br/>
 
             <label>Trees Damaged; count only trees that: Were live trees larger than 4 inches that have been cut down, have scarring over more than a square foot ot the tree and /or
@@ -169,22 +169,22 @@ console.log('answers:', answers)
             <label>Is the site located within 100 feet of water?</label><br/>
             <select name="nearWater" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select><br/>
 
             <label>Is the site located within 100 feet of a trail?</label><br/>
             <select  name="nearTrail" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select><br/>  
 
             <label>Erosion: Has dirt been washed from the trails in any way? are there gullies rills or has dirt washed from site?</label><br/>
             <select  name="erosion" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select><br/>
 
             <h3>Structures</h3><br/>
@@ -195,44 +195,44 @@ console.log('answers:', answers)
             <label>Improvements</label><br/>
             <select  name="improvements" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select><br/>
 
             <label>Is the site contained in any way?</label><br/>
             <select  name="contained" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="no">No</option>
-                <option value="engineered fencing/boulders">engineered fencing/boulders</option>
-                <option value="naturally contained by rocks/trees etc.">naturally contained by rocks/trees etc.</option>
+                <option value="No">No</option>
+                <option value="Engineered fencing/boulders">engineered fencing/boulders</option>
+                <option value="Naturally contained by rocks/trees etc.">naturally contained by rocks/trees etc.</option>
             </select><br/>
 
             <label>Is there possible residential use?</label><br/>
             <select  name="residential" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
             </select><br/>
 
             <h3>Impacts</h3><br/>
             <label>Is trash present?(if yes, how much?)</label><br/>
             <select  name="trash" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="no">No</option>
+                <option value="No">No</option>
                 <option value="<1 Gal"> less than 1 Gal</option>
                 <option value="1 to 5 Gals">1 to 5 Gals</option>
                 <option value="1-2 Large Trash Bags">1-2 Large Trash Bags</option>
                 <option value="> 2 Trash Bags">more than 2 Trash Bags</option>
-                <option value="truck load">truck load</option>
+                <option value="Truck load">truck load</option>
             </select><br/>
 
             <label>Is human waste or TP present within 100 yards?(if yes how much?)</label><br/>
             <select  name="humanWaste" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="no">No</option>
+                <option value="No">No</option>
                 <option value="1">1</option>
                 <option value="2-5">2-5</option>
-                <option value="more than 5">more than 5</option>
+                <option value="More than 5">more than 5</option>
             </select><br/>
 
             <label>Are non-system social trails, less than 3 foot wide, present?(if yes, feet in length)</label><br/>

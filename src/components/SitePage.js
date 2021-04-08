@@ -5,23 +5,59 @@ import Chart from "./Chart"
 
 function SitePage(props) {
 
-const total={
- "contained":[
-          {
-            name: 'Yes',
-            uv: 0,
-          },
-          {
-            name: 'No',
-            uv: 0,
-          },
-          {
-            name: 'N/a',
-            uv: 0,
-          }]           
-}
+  const total={
+  "contained":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "erosion":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "humanWaste":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+      "improvements":[
+        {name: 'Yes',
+          uv: 0,
+        },
+        {name: 'No',
+          uv: 0,
+        }],
+      "nearWater":[
+        {name: 'Yes',
+          uv: 0,
+        },
+        {name: 'No',
+          uv: 0,
+        }],
+      "nearTrail":[
+        {name: 'Yes',
+          uv: 0,
+        },
+        {name: 'No',
+          uv: 0,
+        }],
+      "trash":[
+        {name: 'Yes',
+          uv: 0,
+        },
+        {name: 'No',
+          uv: 0,
+        }],
+  }
 
-const totalwork = []
+  const totalwork = []
        
     let db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
 
@@ -34,110 +70,127 @@ const totalwork = []
           doneFireRingRemoval: "false",
           doneSignageFix: "false",
           doneTrashPickup: "true",
-          erosion: "yes",
+          erosion: "Yes",
           fireRings: "1",
           groundDisturbance: "site has recovered",
           hours: "1",
-          humanWaste: "no",
+          humanWaste: "No",
           id: 6,
           image: "",
-          improvements: "yes",
+          improvements: "Yes",
           location: "107",
-          nearTrail: "yes",
-          nearWater: "yes",
+          nearTrail: "Yes",
+          nearWater: "Yes",
           needContainmentRepair: "false",
           needFireRingRemoval: "false",
           needSignageFix: "false",
           needTrashPickup: "true",
-          notes: "n/a",
+          notes: "N/a",
           residential: "yes",
           siteDescription: "terrible",
           socialRoad: "-4",
           socialTrail: "2",
           survey: "newSurvey",
-          trash: "no",
+          trash: "No",
           treesDamaged: "-2",
-      },{collector: "dusty",
-      contained: "N/a",
-      date: "2021-04-01",
-      disturbedArea: "1-5 sqft",
-      doneContainmentRepair: "false",
-      doneFireRingRemoval: "false",
-      doneSignageFix: "false",
-      doneTrashPickup: "true",
-      erosion: "yes",
-      fireRings: "1",
-      groundDisturbance: "site has recovered",
-      hours: "1",
-      humanWaste: "no",
-      id: 6,
-      image: "",
-      improvements: "yes",
-      location: "107",
-      nearTrail: "yes",
-      nearWater: "yes",
-      needContainmentRepair: "false",
-      needFireRingRemoval: "false",
-      needSignageFix: "false",
-      needTrashPickup: "true",
-      notes: "n/a",
-      residential: "yes",
-      siteDescription: "terrible",
-      socialRoad: "-4",
-      socialTrail: "2",
-      survey: "newSurvey",
-      trash: "no",
-      treesDamaged: "-2",
-  },{collector: "dusty",
-  contained: "Yes",
-  date: "2021-04-01",
-  disturbedArea: "1-5 sqft",
-  doneContainmentRepair: "false",
-  doneFireRingRemoval: "false",
-  doneSignageFix: "false",
-  doneTrashPickup: "true",
-  erosion: "yes",
-  fireRings: "1",
-  groundDisturbance: "site has recovered",
-  hours: "1",
-  humanWaste: "no",
-  id: 6,
-  image: "",
-  improvements: "yes",
-  location: "107",
-  nearTrail: "yes",
-  nearWater: "yes",
-  needContainmentRepair: "false",
-  needFireRingRemoval: "false",
-  needSignageFix: "false",
-  needTrashPickup: "true",
-  notes: "n/a",
-  residential: "yes",
-  siteDescription: "terrible",
-  socialRoad: "-4",
-  socialTrail: "2",
-  survey: "newSurvey",
-  trash: "no",
-  treesDamaged: "-2",
-}]
+          },{collector: "dusty",
+          contained: "No",
+          date: "2021-04-01",
+          disturbedArea: "1-5 sqft",
+          doneContainmentRepair: "false",
+          doneFireRingRemoval: "false",
+          doneSignageFix: "false",
+          doneTrashPickup: "true",
+          erosion: "No",
+          fireRings: "1",
+          groundDisturbance: "site has recovered",
+          hours: "1",
+          humanWaste: "No",
+          id: 6,
+          image: "",
+          improvements: "Yes",
+          location: "107",
+          nearTrail: "Yes",
+          nearWater: "Yes",
+          needContainmentRepair: "false",
+          needFireRingRemoval: "false",
+          needSignageFix: "false",
+          needTrashPickup: "true",
+          notes: "N/a",
+          residential: "yes",
+          siteDescription: "terrible",
+          socialRoad: "-4",
+          socialTrail: "2",
+          survey: "newSurvey",
+          trash: "No",
+          treesDamaged: "-2",
+          },
+          {collector: "dusty",
+          contained: "No",
+          date: "2021-04-01",
+          disturbedArea: "1-5 sqft",
+          doneContainmentRepair: "false",
+          doneFireRingRemoval: "false",
+          doneSignageFix: "false",
+          doneTrashPickup: "true",
+          erosion: "Yes",
+          fireRings: "1",
+          groundDisturbance: "site has recovered",
+          hours: "1",
+          humanWaste: "Yes",
+          id: 6,
+          image: "",
+          improvements: "Yes",
+          location: "107",
+          nearTrail: "Yes",
+          nearWater: "No",
+          needContainmentRepair: "false",
+          needFireRingRemoval: "false",
+          needSignageFix: "false",
+          needTrashPickup: "true",
+          notes: "N/a",
+          residential: "yes",
+          siteDescription: "terrible",
+          socialRoad: "-4",
+          socialTrail: "2",
+          survey: "newSurvey",
+          trash: "No",
+          treesDamaged: "-2",
+          },]
 
       const endresult = forms
 
       endresult.map(
         res => {
-          // if (res.contained == "No"){
             total.contained.map(item => {
-              // console.log("item.name", item.name)
-              // console.log("res.name", res.contained)
               if (item.name ==res.contained )
+                {item.uv += 1}     
+            })
+            total.erosion.map(item => {
+              if (item.name ==res.erosion )
                 {item.uv += 1}
-            console.log("item",item)                
-            })  
-          // }
+            })
+            total.humanWaste.map(item => {
+              if (item.name ==res.humanWaste )
+                {item.uv += 1}
+            })
+            total.improvements.map(item => {
+              if (item.name ==res.improvements)
+                {item.uv += 1}
+            })
+            total.nearTrail.map(item => {
+              if (item.name ==res.nearTrail)
+                {item.uv += 1}
+            })
+            total.nearWater.map(item => {
+              if (item.name ==res.nearWater)
+                {item.uv += 1}
+            })
+            total.trash.map(item => {
+              if (item.name ==res.trash)
+                {item.uv += 1}
+            })
         })
-
-
-
 
     // useEffect(() => {
     //     console.log("currentsSite",props.currentSite)
@@ -146,14 +199,22 @@ const totalwork = []
     //     .catch(err => console.log(err))
     //     },[])
   
-
-
     return(
         <>
-            {/* {formData.map(form => {
-            
-            })} */}
+              <p>has it been contained?</p>
               <Chart form={total.contained}/>  
+              <p>is there erosion?</p>
+              <Chart form={total.erosion}/> 
+              <p>is there human waste?</p>
+              <Chart form={total.humanWaste}/> 
+              <p>is there improvments?</p>
+              <Chart form={total.improvements}/> 
+              <p>is near a trail?</p>
+              <Chart form={total.nearTrail}/> 
+              <p>is it near water?</p>
+              <Chart form={total.nearWater}/> 
+              <p>is there trash?</p>
+              <Chart form={total.trash}/> 
         </>
     )
 }
