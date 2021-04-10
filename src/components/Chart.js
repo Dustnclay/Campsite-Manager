@@ -3,28 +3,28 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 
 function Chart(props){
-    console.log("forms in charts",props)
+    console.log(props.title,props.form)
 
     const datadistrurbance = [
         {
           name: 'Yes',
-          uv: 42,
+          uv: 4,
         },
         {
           name: 'No',
           uv: 30,
         },
-        {
-          name: 'N/a',
-          uv: 20,
-        }
+        // {
+        //   name: 'N/a',
+        //   uv: 20,
+        // }
       ];
       // console.log("props102",props)
     return(
             <BarChart
     width={300}
     height={175}
-    data={props.form}
+    data={datadistrurbance}
     margin={{
       top: 5,
       right: 30,
