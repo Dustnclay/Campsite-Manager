@@ -40,8 +40,6 @@ function SitePage(props) {
     },
   ])
 
-
-
 console.log('props',props)
   const total={
   "contained":[
@@ -267,6 +265,8 @@ console.log('props',props)
           // console.log("endresult",endresult)
         endresult.map(
         res => {
+            console.log("res",res)
+            console.log("total.contained",total.contained)
             total.contained.map(item => {
               if (item.name ==res.contained )
                 {item.uv += 1}     
@@ -284,8 +284,14 @@ console.log('props',props)
                 {item.uv += 1}
             })
             total.nearTrail.map(item => {
+              console.log("itemnaem",item.name,"res.contained",res.contained,"item",item)
+
               if (item.name ==res.nearTrail)
-                {item.uv += 1}
+                {console.log("yeaaaaah")
+                console.log("uv1",item.uv)
+                  item.uv += 1
+                  console.log("uv2",item.uv)
+                }
             })
             total.nearWater.map(item => {
               if (item.name ==res.nearWater)
@@ -330,6 +336,7 @@ console.log('props',props)
               if (item.name ==res.needTrashPickup)
                 {item.uv += 1}
             })
+            console.log("total",total)
         })
       }
   
