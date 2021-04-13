@@ -5,42 +5,49 @@ import Chart from "./Chart"
 
 function SitePage(props) {
 
-  const [endresult,setEndResult] = useState([
-    {collector: "dummy",
-    contained: "No",
-    date: "2021-04-01",
-    disturbedArea: "1-5 sqft",
-    doneContainmentRepair: "false",
-    doneFireRingRemoval: "true",
-    doneSignageFix: "true",
-    doneTrashPickup: "true",
-    erosion: "Yes",
-    fireRings: "1",
-    groundDisturbance: "site has recovered",
-    hours: "1",
-    humanWaste: "No",
-    id: 6,
-    image: "",
-    improvements: "Yes",
-    location: "dummy",
-    nearTrail: "Yes",
-    nearWater: "Yes",
-    needContainmentRepair: "false",
-    needFireRingRemoval: "false",
-    needSignageFix: "false",
-    needTrashPickup: "true",
-    notes: "N/a",
-    residential: "yes",
-    siteDescription: "terrible",
-    socialRoad: "-4",
-    socialTrail: "2",
-    survey: "newSurvey",
-    trash: "No",
-    treesDamaged: "-2",
-    },
-  ])
+  const db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
+useEffect(() => {
+      axios.get(db_url + props.currentSite)
+    .then(res => populateTotal(res.data))
+    .catch(err => console.log(err))  
+},[props.currentSite])
 
-console.log('props',props)
+
+  // const [formData,setFormData] = useState([
+  //   {collector: "dummy",
+  //   contained: "No",
+  //   date: "2021-04-01",
+  //   disturbedArea: "1-5 sqft",
+  //   doneContainmentRepair: "false",
+  //   doneFireRingRemoval: "true",
+  //   doneSignageFix: "true",
+  //   doneTrashPickup: "true",
+  //   erosion: "Yes",
+  //   fireRings: "1",
+  //   groundDisturbance: "site has recovered",
+  //   hours: "1",
+  //   humanWaste: "No",
+  //   id: 6,
+  //   image: "",
+  //   improvements: "Yes",
+  //   location: "dummy",
+  //   nearTrail: "Yes",
+  //   nearWater: "Yes",
+  //   needContainmentRepair: "false",
+  //   needFireRingRemoval: "false",
+  //   needSignageFix: "false",
+  //   needTrashPickup: "true",
+  //   notes: "N/a",
+  //   residential: "yes",
+  //   siteDescription: "terrible",
+  //   socialRoad: "-4",
+  //   socialTrail: "2",
+  //   survey: "newSurvey",
+  //   trash: "No",
+  //   treesDamaged: "-2",
+  //   },
+  // ])
+
 
 const [total,setTotal] = useState({
   "contained":[
@@ -150,31 +157,77 @@ const [total,setTotal] = useState({
       }],
   })
 
-  const totalwork = []
-       
-    let db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
+//   Axios in current site change is good
+// In the response is set end result
 
-          useEffect(() => {
-            axios.get(db_url + props.currentSite)
-            .then(res => setEndResult(res.data),populateTotal())
-            .catch(err => console.log(err))
-            console.log("total in axios",endresult)
-          },[props.currentSite])
-            
-
-        function populateTotal() {
-          console.log('populatetoatl')
-        endresult.map(
-        res => {
-          
-          if (res.contained == "No"){
-          setTotal(total.contained[1].uv += 1)
-          }
-          console.log("total in populate",total)
-          // setTotal(
-//setstate
+// After axios make populate total take t as an argument
 
 
+
+// Don’t need to have use effect for update
+// When this changes fetch the data,
+// When data is changed calculate the total
+// St a variable to it
+// Populate the total with data that I know is good,
+// Then pass that data to component
+
+// Remove use effect
+
+// Only use useState in use effect
+
+// Get data set it to a variable
+// Pass it to a function
+// Parse the data
+// Set the state after its arsed,
+// Once the state is updated 
+
+    let forms = [
+      {collector: "dummy",
+      contained: "No",
+      date: "2021-04-01",
+      disturbedArea: "1-5 sqft",
+      doneContainmentRepair: "false",
+      doneFireRingRemoval: "true",
+      doneSignageFix: "true",
+      doneTrashPickup: "true",
+      erosion: "Yes",
+      fireRings: "1",
+      groundDisturbance: "site has recovered",
+      hours: "1",
+      humanWaste: "No",
+      id: 6,
+      image: "",
+      improvements: "Yes",
+      location: "dummy",
+      nearTrail: "Yes",
+      nearWater: "Yes",
+      needContainmentRepair: "false",
+      needFireRingRemoval: "false",
+      needSignageFix: "false",
+      needTrashPickup: "true",
+      notes: "N/a",
+      residential: "yes",
+      siteDescription: "terrible",
+      socialRoad: "-4",
+      socialTrail: "2",
+      survey: "newSurvey",
+      trash: "No",
+      treesDamaged: "-2",
+      },
+    ]
+
+      function populateTotal(props) {
+          props.map(
+              res => {
+                console.log("res in map",res.contained)
+                  if (res.contained == "yes"){
+                    // console.log("total in poptotal",total.contained[0])
+                    setTotal(original =>  total.contained[0].uv += 1)
+                  }
+
+                  setInterval(function() {
+                    console.log("settimeout",total.contained)
+                  }, 3000);
 
 //with a const total
             // total.contained.map(item => {
