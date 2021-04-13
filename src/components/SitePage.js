@@ -5,6 +5,8 @@ import Chart from "./Chart"
 
 function SitePage(props) {
 
+const timeout = false
+
   const db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
 useEffect(() => {
       axios.get(db_url + props.currentSite)
@@ -217,17 +219,16 @@ const [total,setTotal] = useState({
     ]
 
       function populateTotal(props) {
+        console.log("props in poptotal",props)
           props.map(
               res => {
                 console.log("res in map",res.contained)
-                  if (res.contained == "yes"){
-                    // console.log("total in poptotal",total.contained[0])
+                  if (res.contained === "yes"){
                     setTotal(original =>  total.contained[0].uv += 1)
-                  }
+                    console.log("total in poptotalafter",total.contained[0])
+                  };
 
-                  setInterval(function() {
-                    console.log("settimeout",total.contained)
-                  }, 3000);
+
 
 //with a const total
             // total.contained.map(item => {
@@ -298,39 +299,44 @@ const [total,setTotal] = useState({
             // console.log("total",total)
         })
       }
+
+      setTimeout(() => {
+        timeout = true
+      }, 4000);
   
     return(
         <>
+          
               <p>has it been contained?</p>
-              <Chart title={"contained"}form={total.contained}/>  
+              <Chart title={"contained"} form={total.contained}/>  
               <p>is there erosion?</p>
-              <Chart title={"contained"}form={total.erosion}/> 
+              <Chart title={"contained"} form={total.erosion}/> 
               <p>is there human waste?</p>
-              <Chart title={"contained"}form={total.humanWaste}/> 
+              <Chart title={"contained"} form={total.humanWaste}/> 
               <p>is there improvments?</p>
-              <Chart title={"contained"}form={total.improvements}/> 
+              <Chart title={"contained"} form={total.improvements}/> 
               <p>is near a trail?</p>
-              <Chart title={"contained"}form={total.nearTrail}/> 
+              <Chart title={"contained"} form={total.nearTrail}/> 
               <p>is it near water?</p>
-              <Chart title={"contained"}form={total.nearWater}/> 
+              <Chart title={"contained"} form={total.nearWater}/> 
               <p>is there trash?</p>
-              <Chart title={"contained"}form={total.trash}/> 
+              <Chart title={"contained"} form={total.trash}/> 
               <p>containment repair done?</p>
-              <Chart title={"contained"}form={total.doneContainmentRepair}/> 
+              <Chart title={"contained"} form={total.doneContainmentRepair}/> 
               <p>need containment repair?</p>
-              <Chart title={"contained"}form={total.needContainmentRepair}/> 
+              <Chart title={"contained"} form={total.needContainmentRepair}/> 
               <p>fire ring removal done?</p>
-              <Chart title={"contained"}form={total.doneFireRingRemoval}/> 
+              <Chart title={"contained"} form={total.doneFireRingRemoval}/> 
               <p>need fire ringsremoved?</p>
-              <Chart title={"contained"}form={total.needFireRingRemoval}/> 
+              <Chart title={"contained"} form={total.needFireRingRemoval}/> 
               <p>signage fixed?</p>
-              <Chart title={"contained"}form={total.doneSignageFix}/> 
+              <Chart title={"contained"} form={total.doneSignageFix}/> 
               <p>need sigange fix?</p>
-              <Chart title={"contained"}form={total.needSignageFix}/> 
+              <Chart title={"contained"} form={total.needSignageFix}/> 
               <p>trash picked up?</p>
-              <Chart title={"contained"}form={total.doneTrashPickup}/> 
+              <Chart title={"contained"} form={total.doneTrashPickup}/> 
               <p>need trash pickup?</p>
-              <Chart title={"contained"}form={total.needTrashPickup}/> 
+              <Chart title={"contained"} form={total.needTrashPickup}/> 
         </>
     )
 }

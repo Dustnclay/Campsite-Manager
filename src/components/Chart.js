@@ -3,7 +3,7 @@ import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Resp
 
 
 function Chart(props){
-    console.log(props.title,props)
+    // console.log(props.title,props)
 
     const datadistrurbance = [
         {
