@@ -54,17 +54,17 @@ useEffect(() => {
 const [total,setTotal] = useState({
   "contained":[
       {name: 'Yes',
-        uv: 0,
+        uv: 4,
       },
       {name: 'No',
-        uv: 0,
+        uv: 4,
       }],
     "erosion":[
       {name: 'Yes',
         uv: 0,
       },
       {name: 'No',
-        uv: 0,
+        uv: 10,
       }],
     "humanWaste":[
       {name: 'Yes',
@@ -218,12 +218,13 @@ const [total,setTotal] = useState({
       },
     ]
 
-      function populateTotal(props) {
-        console.log("props in poptotal",props)
-          props.map(
+      function populateTotal(inputData) {
+        console.log("props in poptotal",inputData)
+        inputData.map(
               res => {
                 console.log("res in map",res.contained)
                   if (res.contained === "yes"){
+                    console.log("found yes")
                     setTotal(original =>  total.contained[0].uv += 1)
                     console.log("total in poptotalafter",total.contained[0])
                   };
@@ -300,10 +301,10 @@ const [total,setTotal] = useState({
         })
       }
 
-      setTimeout(() => {
-        timeout = true
-      }, 4000);
-  
+      // setTimeout(() => {
+      //   timeout = true
+      // }, 4000);
+  console.log("container", total.contained)
     return(
         <>
           
