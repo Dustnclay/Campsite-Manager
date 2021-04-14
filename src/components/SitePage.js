@@ -64,7 +64,7 @@ const [total,setTotal] = useState({
         uv: 0,
       },
       {name: 'No',
-        uv: 10,
+        uv: 0,
       }],
     "humanWaste":[
       {name: 'Yes',
@@ -185,7 +185,7 @@ const [total,setTotal] = useState({
 
     let forms = [
       {collector: "dummy",
-      contained: "No",
+      contained: "Yes",
       date: "2021-04-01",
       disturbedArea: "1-5 sqft",
       doneContainmentRepair: "false",
@@ -221,13 +221,21 @@ const [total,setTotal] = useState({
       function populateTotal(inputData) {
         console.log("props in poptotal",inputData)
         inputData.map(
-              res => {
-                console.log("res in map",res.contained)
-                  if (res.contained === "yes"){
-                    console.log("found yes")
-                    setTotal({ ...total , contained})
-                    console.log("total in poptotalafter",total)
-                  };
+          res => {
+            // console.log("res in map",res.contained)
+            if (res.contained === "yes"){
+              
+
+              const tempstate = total
+              console.log(tempstate.contained[0].name, res.contained)
+              console.log("what is this??",tempstate.contained.indexOf(element => element.name.toUppercase() == res.contained.toUppercase()))
+
+              tempstate.contained[0].uv +=1
+              // console.log("contained",tempstate.contained)
+
+              setTotal({ ...total , contained: tempstate.contained})
+              // console.log("total in poptotalafter",total)
+            };
 
 
 
