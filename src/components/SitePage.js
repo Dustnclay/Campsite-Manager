@@ -54,10 +54,10 @@ useEffect(() => {
 const [total,setTotal] = useState({
   "contained":[
       {name: 'Yes',
-        uv: 4,
+        uv: 0,
       },
       {name: 'No',
-        uv: 4,
+        uv: 0,
       }],
     "erosion":[
       {name: 'Yes',
@@ -225,8 +225,8 @@ const [total,setTotal] = useState({
                 console.log("res in map",res.contained)
                   if (res.contained === "yes"){
                     console.log("found yes")
-                    setTotal(original =>  total.contained[0].uv += 1)
-                    console.log("total in poptotalafter",total.contained[0])
+                    setTotal({ ...total , contained})
+                    console.log("total in poptotalafter",total)
                   };
 
 
@@ -304,7 +304,7 @@ const [total,setTotal] = useState({
       // setTimeout(() => {
       //   timeout = true
       // }, 4000);
-  console.log("container", total.contained)
+  console.log("container", total)
     return(
         <>
           
