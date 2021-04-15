@@ -1,11 +1,11 @@
 
-import React, {Component,useEffect,useState} from "react"
+import React, {useEffect,useState} from "react"
 import axios from 'axios'
 import Chart from "./Chart"
 
 function SitePage(props) {
 
-const timeout = false
+  let complete = false
 
   const db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
 useEffect(() => {
@@ -14,47 +14,11 @@ useEffect(() => {
     .catch(err => console.log(err))  
 },[props.currentSite])
 
-
-  // const [formData,setFormData] = useState([
-  //   {collector: "dummy",
-  //   contained: "No",
-  //   date: "2021-04-01",
-  //   disturbedArea: "1-5 sqft",
-  //   doneContainmentRepair: "false",
-  //   doneFireRingRemoval: "true",
-  //   doneSignageFix: "true",
-  //   doneTrashPickup: "true",
-  //   erosion: "Yes",
-  //   fireRings: "1",
-  //   groundDisturbance: "site has recovered",
-  //   hours: "1",
-  //   humanWaste: "No",
-  //   id: 6,
-  //   image: "",
-  //   improvements: "Yes",
-  //   location: "dummy",
-  //   nearTrail: "Yes",
-  //   nearWater: "Yes",
-  //   needContainmentRepair: "false",
-  //   needFireRingRemoval: "false",
-  //   needSignageFix: "false",
-  //   needTrashPickup: "true",
-  //   notes: "N/a",
-  //   residential: "yes",
-  //   siteDescription: "terrible",
-  //   socialRoad: "-4",
-  //   socialTrail: "2",
-  //   survey: "newSurvey",
-  //   trash: "No",
-  //   treesDamaged: "-2",
-  //   },
-  // ])
-
-
+ 
 const [total,setTotal] = useState({
   "contained":[
       {name: 'Yes',
-        uv: 0,
+        uv: 0,  
       },
       {name: 'No',
         uv: 0,
@@ -183,59 +147,24 @@ const [total,setTotal] = useState({
 // Set the state after its arsed,
 // Once the state is updated 
 
-    let forms = [
-      {collector: "dummy",
-      contained: "Yes",
-      date: "2021-04-01",
-      disturbedArea: "1-5 sqft",
-      doneContainmentRepair: "false",
-      doneFireRingRemoval: "true",
-      doneSignageFix: "true",
-      doneTrashPickup: "true",
-      erosion: "Yes",
-      fireRings: "1",
-      groundDisturbance: "site has recovered",
-      hours: "1",
-      humanWaste: "No",
-      id: 6,
-      image: "",
-      improvements: "Yes",
-      location: "dummy",
-      nearTrail: "Yes",
-      nearWater: "Yes",
-      needContainmentRepair: "false",
-      needFireRingRemoval: "false",
-      needSignageFix: "false",
-      needTrashPickup: "true",
-      notes: "N/a",
-      residential: "yes",
-      siteDescription: "terrible",
-      socialRoad: "-4",
-      socialTrail: "2",
-      survey: "newSurvey",
-      trash: "No",
-      treesDamaged: "-2",
-      },
-    ]
 
-      function populateTotal(inputData) {
+      async function populateTotal (inputData){
         console.log("props in poptotal",inputData)
-        inputData.map(
+        await inputData.map(
           res => {
             // console.log("res in map",res.contained)
-            if (res.contained === "yes"){
+            if (res.contained === "Yes"){
               
-
               const tempstate = total
-              console.log(tempstate.contained[0].name, res.contained)
-              console.log("what is this??",tempstate.contained.indexOf(element => element.name.toUppercase() == res.contained.toUppercase()))
-
               tempstate.contained[0].uv +=1
-              // console.log("contained",tempstate.contained)
 
               setTotal({ ...total , contained: tempstate.contained})
               // console.log("total in poptotalafter",total)
             };
+          complete = true
+          // console.log("complete",complete)
+          // console.log("state",total)
+          
 
 
 
@@ -314,10 +243,9 @@ const [total,setTotal] = useState({
       // }, 4000);
   console.log("container", total)
     return(
-        <>
-          
+        <>  
               <p>has it been contained?</p>
-              <Chart title={"contained"} form={total.contained}/>  
+              <Chart title={"contained"} form={total.contained}/>          
               <p>is there erosion?</p>
               <Chart title={"contained"} form={total.erosion}/> 
               <p>is there human waste?</p>
@@ -345,7 +273,8 @@ const [total,setTotal] = useState({
               <p>trash picked up?</p>
               <Chart title={"contained"} form={total.doneTrashPickup}/> 
               <p>need trash pickup?</p>
-              <Chart title={"contained"} form={total.needTrashPickup}/> 
+              <Chart title={"contained"} form={total.needTrashPickup}/>               
+
         </>
     )
 }

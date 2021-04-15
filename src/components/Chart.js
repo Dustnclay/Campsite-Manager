@@ -1,20 +1,20 @@
 import React from 'react'
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
 
 function Chart(props){
-    // console.log(props.title,props)
+    console.log(props.title,props)
 
-    const datadistrurbance = [
-        {
-          name: 'Yes',
-          uv: 4,
-        },
-        {
-          name: 'No',
-          uv: 30,
-        },
-      ];
+    // const datadistrurbance = [
+    //     {
+    //       name: 'Yes',
+    //       uv: 4,
+    //     },
+    //     {
+    //       name: 'No',
+    //       uv: 30,
+    //     },
+    //   ];
     return(
         <BarChart
           width={300}

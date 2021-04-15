@@ -1,7 +1,10 @@
-import React, {useEffect, useState,Component} from 'react'
+import React, {Component} from 'react'
 import axios from 'axios'
 import {Link,Route} from 'react-router-dom'
 import SitePage from "./SitePage"
+import{connect} from 'react-redux'
+import {getSite} from '../actions'
+
 
 
 class Manager extends Component {
@@ -23,7 +26,7 @@ class Manager extends Component {
     async getSites() {
         const campArr = []
 
-        let data = await axios.get(this.url)
+        await axios.get(this.url)
         .then(res => res.data.map(site => campArr.push(site.location)))
         .catch(err => console.log(err))
 
@@ -55,7 +58,17 @@ class Manager extends Component {
     }
 }
 
-export default Manager
+const mapStateToProps = state => ({
+
+    currentSite: state.currentSite
+  })
+  
+  export default connect(
+    mapStateToProps,
+    {getSite}
+    )(Manager);
+
+// export default Manager
 
 
 
