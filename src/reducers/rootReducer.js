@@ -5,6 +5,7 @@ import {
 FETCH_SITE_NUM,
 FETCH_SITE_SUCCESS,
 FETCH_SITE_FAIL,
+SET_CURRENT_SITE,
 FETCH_FORMS,
 FETCH_FORMS_SUCCESS,
 FETCH_FORMS_FAIL
@@ -117,15 +118,15 @@ const initialState = {
           uv: 0,
         }],
         err:'',
-        isFetching:false
+        isFetching:false,
+        siteArr :[],
+        currentSite:0
 }
 
 export const rootReducer = ( state = initialState, action) => {
     
     switch(action.type){
         case FETCH_SITE_NUM:
-            console.log("fetchsiteno")
-            console.log(action.payload)
             return{
                 ...state,
                 err:'',
@@ -133,12 +134,23 @@ export const rootReducer = ( state = initialState, action) => {
             };
         case FETCH_SITE_SUCCESS:
             console.log("fetchsitesuccess")
-            console.log(action.payload)
+            const savedData = action.payload.data
+            const locationArr = []
+            savedData.map(item => locationArr.push(item.location))
+            var deDupedSites = new Set(action.payload.data)
+            // var set = new Set(arr);
+            const siteArr = [...new Set(locationArr)]
+
+            console.log("locationArr",locationArr)
+
+            console.log("siteArr",siteArr)
+
 
             return{
                 ...state,
                 err:'',
-                isFetching:false
+                isFetching:false,
+                siteArr:siteArr
             };   
         case FETCH_SITE_FAIL:
             console.log("fetchsitefail")
@@ -149,6 +161,18 @@ export const rootReducer = ( state = initialState, action) => {
                 err:'',
                 isFetching:false
             };   
+
+            case SET_CURRENT_SITE:
+              console.log("set current site")
+              console.log(action.payload)
+  
+              return{
+                  ...state,
+                  err:'',
+                  isFetching:false,
+                  currentSite:action.payload
+              }; 
+
         case FETCH_FORMS:
             console.log("FETCH_FORMS")
             console.log(action.payload)

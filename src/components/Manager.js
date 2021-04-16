@@ -1,90 +1,60 @@
-import React, {Component} from 'react'
+import React, {useEffect,useState} from 'react'
 import axios from 'axios'
 import {Link,Route} from 'react-router-dom'
 import SitePage from "./SitePage"
 import{connect} from 'react-redux'
-import {getSite} from '../actions'
+import {getSite,getNo} from '../actions'
 
 
 
-class Manager extends Component {
-    constructor(){
-        super();
-        this.state = {
-            siteArr:[],
-            currentSite:null
-            };
-        this.url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form"
-        this.getSites = this.getSites.bind(this);
-        this.getNo = this.getNo.bind(this);
-    }
+function Manager(props) {
+    console.log("props",props)
+    const [current,setCurrent] = useState()
 
-    componentDidMount(){
-        this.getSites();
-    }
+        // const siteArr=[];
+        // const currentSite=null
+        // const url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form"
 
-    async getSites() {
-        const campArr = []
+    useEffect(() => {
+    props.getSite()
+    },props.siteArr)
 
-        await axios.get(this.url)
-        .then(res => res.data.map(site => campArr.push(site.location)))
-        .catch(err => console.log(err))
 
-        this.state.siteArr = Array.from([...new Set(campArr)])
-        this.forceUpdate()
-    }
+    // function getSites () {
+    //     const campArr = []
 
-    getNo(e) {
-        this.setState({currentSite: e})
-        
-    }
+    //     axios.get("https://campsite-manager.herokuapp.com/form")
+    //     .then(res => res.data.map(site => campArr.push(site.location)))
+    //     .catch(err => console.log(err))
 
-    render(){
-        const {siteArr} = this.state;
-        const {currentSite} = this.state;
+    //     siteArr = Array.from([...new Set(campArr)])
+    // }
+
+
+
         return(
             <>
             <h1>Manager Page</h1>
-             {siteArr.map(item => {
+             {props.siteArr.map(item => {
                 return(
-                   <Link onClick={() => this.getNo(`${item}`)} key={item} to={ "/manager/"+ item}> {item} </Link> 
+                   <Link onClick={() => props.getNo(`${item}`)} key={item} to={ "/manager/"+ item}> {item} </Link> 
                     )
                 })} 
-                <Route path={`/manager/${currentSite}`}>
-                    <SitePage currentSite={currentSite}/>
+                <Route path={`/manager/${props.currentSite}`}>
+                    <SitePage currentSite={props.currentSite}/>
                 </Route>
             </>
         )        
     }
-}
+
 
 const mapStateToProps = state => ({
 
-    currentSite: state.currentSite
+    currentSite: state.currentSite,
+    siteArr: state.siteArr
   })
   
   export default connect(
     mapStateToProps,
-    {getSite}
+    {getSite, getNo}
     )(Manager);
-
-// export default Manager
-
-
-
-//     const [campsites,useCampsites] = useState(null)
-//     const campArr = []
-//     const finalList = []
-//     let unique =[]
-    
-    // const dbURL = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form"
-    
-
-
-//     async function getCamps() {
-//         campArr[0].map(item => {
-//         finalList.push(item.location)
-//          })        
-//         unique = [...new Set(finalList)]
-//           console.log('uniquie',unique)
-//     }

@@ -6,6 +6,9 @@ export const FETCH_SITE_FAIL = "FETCH_SITE_FAIL"
 export const FETCH_FORMS = "FETCH_FORMS"
 export const FETCH_FORMS_SUCCESS = "FETCH_FORMS_SUCCESS"
 export const FETCH_FORMS_FAIL = "FETCH_FORMS_FAIL"
+export const SET_CURRENT_SITE = "SET_CURRENT_SITE"
+
+
 
 export const getSite = () => dispatch => {
     dispatch({type:FETCH_SITE_NUM});
@@ -19,6 +22,12 @@ export const getSite = () => dispatch => {
             dispatch({ type: FETCH_SITE_FAIL, payload:err})
         })
 } 
+
+export const getNo = (siteNo) => dispatch => {
+    dispatch({type:SET_CURRENT_SITE, payload:siteNo});
+} 
+
+
 
 export const getForms = (siteNo) => dispatch => {
     dispatch({type:FETCH_FORMS});
