@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 
 function Chart(props){
-    console.log(props.title,props)
+    // console.log(props.title,props)
 
     // const datadistrurbance = [
     //     {

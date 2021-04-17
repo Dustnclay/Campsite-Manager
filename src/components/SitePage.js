@@ -2,16 +2,21 @@
 import React, {useEffect,useState} from "react"
 import axios from 'axios'
 import Chart from "./Chart"
+import {getForms} from '../actions'
+import{connect} from 'react-redux'
+
 
 function SitePage(props) {
-
+  console.log("props in sitePage",props.allState)
   let complete = false
 
   const db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
 useEffect(() => {
-      axios.get(db_url + props.currentSite)
-    .then(res => populateTotal(res.data))
-    .catch(err => console.log(err))  
+  props.getForms(props.currentSite)
+  // console.log("axios on sitePage",)
+  //     axios.get(db_url + props.currentSite)
+  //   .then(res => populateTotal(res.data))
+  //   .catch(err => console.log(err))  
 },[props.currentSite])
 
  
@@ -148,23 +153,16 @@ const [total,setTotal] = useState({
 // Once the state is updated 
 
 
-      async function populateTotal (inputData){
-        console.log("props in poptotal",inputData)
-        await inputData.map(
-          res => {
-            // console.log("res in map",res.contained)
-            if (res.contained === "Yes"){
+      // function populateTotal (inputData){
+      //   inputData.map(
+      //     res => {
+      //       if (res.contained === "Yes"){
               
-              const tempstate = total
-              tempstate.contained[0].uv +=1
+      //         const tempstate = total
+      //         tempstate.contained[0].uv +=1
 
-              setTotal({ ...total , contained: tempstate.contained})
-              // console.log("total in poptotalafter",total)
-            };
-          complete = true
-          // console.log("complete",complete)
-          // console.log("state",total)
-          
+      //         setTotal({ ...total , contained: tempstate.contained})
+      //       };
 
 
 
@@ -235,17 +233,17 @@ const [total,setTotal] = useState({
             //     {item.uv += 1}
             // }),
             // console.log("total",total)
-        })
-      }
+      //   })
+      // }
 
       // setTimeout(() => {
       //   timeout = true
       // }, 4000);
-  console.log("container", total)
+  // console.log("container", total)
     return(
         <>  
               <p>has it been contained?</p>
-              <Chart title={"contained"} form={total.contained}/>          
+              <Chart title={"contained"} form={props.allState.contained}/>          
               <p>is there erosion?</p>
               <Chart title={"contained"} form={total.erosion}/> 
               <p>is there human waste?</p>
@@ -278,4 +276,14 @@ const [total,setTotal] = useState({
         </>
     )
 }
-export default SitePage
+const mapStateToProps = state => ({
+
+  currentSite: state.currentSite,
+  siteArr: state.siteArr,
+  allState:state
+})
+
+export default connect(
+  mapStateToProps,
+  {getForms}
+  )(SitePage);

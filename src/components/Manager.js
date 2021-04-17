@@ -1,5 +1,4 @@
-import React, {useEffect,useState} from 'react'
-import axios from 'axios'
+import React, {useEffect} from 'react'
 import {Link,Route} from 'react-router-dom'
 import SitePage from "./SitePage"
 import{connect} from 'react-redux'
@@ -8,29 +7,11 @@ import {getSite,getNo} from '../actions'
 
 
 function Manager(props) {
-    console.log("props",props)
-    const [current,setCurrent] = useState()
-
-        // const siteArr=[];
-        // const currentSite=null
-        // const url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form"
+    // console.log("props",props)
 
     useEffect(() => {
     props.getSite()
     },props.siteArr)
-
-
-    // function getSites () {
-    //     const campArr = []
-
-    //     axios.get("https://campsite-manager.herokuapp.com/form")
-    //     .then(res => res.data.map(site => campArr.push(site.location)))
-    //     .catch(err => console.log(err))
-
-    //     siteArr = Array.from([...new Set(campArr)])
-    // }
-
-
 
         return(
             <>

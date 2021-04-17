@@ -123,6 +123,130 @@ const initialState = {
         currentSite:0
 }
 
+  let tallyTemplate = {
+  "contained":[
+      {name: 'Yes',
+        uv: 0,  
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "erosion":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "humanWaste":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "improvements":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "nearWater":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "nearTrail":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "trash":[
+      {name: 'Yes',
+        uv: 0,
+      },
+      {name: 'No',
+        uv: 0,
+      }],
+    "doneContainmentRepair":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }],
+    "doneFireRingRemoval":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }],
+    "doneSignageFix":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }],
+    "doneTrashPickup":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }],
+    "needContainmentRepair":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }],
+    "needFireRingRemoval":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }],
+    "needSignageFix":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }],
+    "needTrashPickup":[
+      {name: 'true',
+        uv: 0,
+      },
+      {name: 'false',
+        uv: 0,
+      }]
+    }  
+
+  function populateTotal (responseForms){
+
+    responseForms.map(
+      res => {
+        if (res.contained === "Yes"){
+          
+          const tempstate = tallyTemplate
+          tempstate.contained[0].uv +=1
+
+          tallyTemplate = { ...tallyTemplate , contained: tempstate.contained}
+        };
+        
+    })
+    return tallyTemplate
+  }
+
 export const rootReducer = ( state = initialState, action) => {
     
     switch(action.type){
@@ -137,7 +261,7 @@ export const rootReducer = ( state = initialState, action) => {
             const savedData = action.payload.data
             const locationArr = []
             savedData.map(item => locationArr.push(item.location))
-            var deDupedSites = new Set(action.payload.data)
+            // var deDupedSites = new Set(action.payload.data)
             // var set = new Set(arr);
             const siteArr = [...new Set(locationArr)]
 
@@ -174,23 +298,30 @@ export const rootReducer = ( state = initialState, action) => {
               }; 
 
         case FETCH_FORMS:
-            console.log("FETCH_FORMS")
-            console.log(action.payload)
+            // console.log("FETCH_FORMS")
+            // console.log("payload in form fetch",action.payload)
 
             return{
                 ...state,
+                
                 err:'',
                 isFetching:true
             };
         case FETCH_FORMS_SUCCESS:
             console.log("FETCH_FORMS_Success")
-            console.log(action.payload)
+            console.log("action payload success",action.payload.data)
+            const responseForms = action.payload.data
+            
 
+            const afterPopTote = populateTotal (responseForms)
+            console.log("afterPopTote",afterPopTote)
             return{
                 ...state,
+                contained:tallyTemplate.contained,
                 err:'',
                 isFetching:false
-            };   
+            };        
+        
         case FETCH_FORMS_FAIL:
             console.log("FETCH_FORMS_fail")
             console.log(action.payload)

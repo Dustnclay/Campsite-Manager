@@ -163,7 +163,14 @@ console.log('answers:', answers)
 
             <label>Trees Damaged; count only trees that: Were live trees larger than 4 inches that have been cut down, have scarring over more than a square foot ot the tree and /or
                  have more that 3 sqft of roots exposed and/or have more than 5 branches broken. Also count any Krumholtz trees of any size with visible damage to live trees/ limbs.</label><br/>
-            <input type='number' name="treesDamaged" onChange={eventHandler}></input>
+            <select  name="treesDamaged" onChange={eventHandler}>
+                <option value="choose">---select---</option>
+                <option value="0">0</option>
+                <option value="1-2">1-2</option>
+                <option value="3-5">3-5</option>
+                <option value="5-10">5-10</option>
+                <option value="+10">+10</option>
+            </select><br/>
 
             <h3>Resource Impacts</h3><br/>
             <label>Is the site located within 100 feet of water?</label><br/>
@@ -189,7 +196,14 @@ console.log('answers:', answers)
 
             <h3>Structures</h3><br/>
             <label>How many fire rings there?</label><br/>
-            <input  type="number" name="fireRings" onChange={eventHandler}></input><br/>
+            <select  name="fireRings" onChange={eventHandler}>
+                <option value="choose">---select---</option>
+                <option value="0">0</option>
+                <option value="2">1-2</option>
+                <option value="3">3-5</option>
+                <option value="4">5-10</option>
+                <option value="+5">+10</option>
+            </select><br/>
 
 
             <label>Improvements</label><br/>
@@ -236,10 +250,22 @@ console.log('answers:', answers)
             </select><br/>
 
             <label>Are non-system social trails, less than 3 foot wide, present?(if yes, feet in length)</label><br/>
-            <input  type="number" name="socialTrail" value={answers.socialTrail} onChange={eventHandler}></input><br/>
-            
+            <select  name="socialTrail" onChange={eventHandler}>
+                <option value="choose">---select---</option>
+                <option value="0-10">0-10</option>
+                <option value="10-25">10-25</option>
+                <option value="25-100">25-100</option>
+                <option value="100+">100+</option>
+            </select><br/>
+
             <label>Are non system social roads/ ATV/Motorcycle, more than 3 foot wide, present? (if yes, feet in length)</label><br/>
-            <input  type="number" name="socialRoad" value={answers.socialRoad} onChange={eventHandler}></input><br/>
+            <select  name="socialRoad" onChange={eventHandler}>
+                <option value="choose">---select---</option>
+                <option value="0-10">0-10</option>
+                <option value="10-25">10-25</option>
+                <option value="25-100">25-100</option>
+                <option value="100+">100+</option>
+            </select><br/>
 
             <h3>Campsite Adopter Data</h3><br/>
 
