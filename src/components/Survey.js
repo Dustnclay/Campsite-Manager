@@ -55,7 +55,7 @@ function Survey() {
     const [answers,setAnswers] =useState({
         location:'',
         collector:'',
-        survey:'',
+        survey:'NewSurvey',
         groundDisturbance:'',
         disturbedArea:'',
         treesDamaged:'',
@@ -134,31 +134,31 @@ console.log('answers:', answers)
             <label>Collector Name</label><br/>
             <input type='text' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
 
-            <label>Is this a New survey or Re-survey</label><br/>
+            {/* <label>Is this a New survey or Re-survey</label><br/>
             <select name="survey" onChange={eventHandler}>
                 <option value="choose">---select---</option>
                 <option value="NewSurvey">New Survey</option>
                 <option value="Re-survey">Re-survey</option>
-            </select><br/>
+            </select><br/> */}
 
             <h3>Impact Rating</h3><br/>
             <label>Ground Disturbance Rating</label><br/>
             <select name="groundDisturbance" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="Site has recovered">Site has Recovered</option>
-                <option value="Vegetation is flattened but not permanently damaged">vegetation is flattened but not permanently damaged</option>
-                <option value="Vegetation is worn away around fire place or center of activity">vegetation is worn away around fire place or center of activity</option>
-                <option value="Bare soil is exposed on most of site">bare soil is exposed on most of site</option>
+                <option value="SiteHasRecovered">Site has Recovered</option>
+                <option value="FlattenedNotPermanent">vegetation is flattened but not permanently damaged</option>
+                <option value="WornAway">vegetation is worn away around fire place or center of activity</option>
+                <option value="BareSoil">bare soil is exposed on most of site</option>
             </select><br/>
 
             <label>Disturbed Area Rating in square footage</label><br/>
             <select  name="disturbedArea" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="1-5 sqft">1-5 sqft</option>
-                <option value="5-10 sqft">5-10 sqft</option>
-                <option value="10-25 sqft">10-25 sqft</option>
+                <option value="1-5sqft">1-5 sqft</option>
+                <option value="5-10sqft">5-10 sqft</option>
+                <option value="10-25sqft">10-25 sqft</option>
                 <option value="25-50 sqft">25-50 sqft</option>
-                <option value="More than 50 sqft">more than 50 sqft</option>
+                <option value="MoreThan50sqft">more than 50 sqft</option>
             </select><br/>
 
             <label>Trees Damaged; count only trees that: Were live trees larger than 4 inches that have been cut down, have scarring over more than a square foot ot the tree and /or
@@ -199,10 +199,10 @@ console.log('answers:', answers)
             <select  name="fireRings" onChange={eventHandler}>
                 <option value="choose">---select---</option>
                 <option value="0">0</option>
-                <option value="2">1-2</option>
-                <option value="3">3-5</option>
-                <option value="4">5-10</option>
-                <option value="+5">+10</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="+4">+4</option>
             </select><br/>
 
 
@@ -217,8 +217,8 @@ console.log('answers:', answers)
             <select  name="contained" onChange={eventHandler}>
                 <option value="choose">---select---</option>
                 <option value="No">No</option>
-                <option value="Engineered fencing/boulders">engineered fencing/boulders</option>
-                <option value="Naturally contained by rocks/trees etc.">naturally contained by rocks/trees etc.</option>
+                <option value="EngineeredFencing/boulders">engineered fencing/boulders</option>
+                <option value="NaturallyContained">naturally contained by rocks/trees etc.</option>
             </select><br/>
 
             <label>Is there possible residential use?</label><br/>
@@ -233,11 +233,11 @@ console.log('answers:', answers)
             <select  name="trash" onChange={eventHandler}>
                 <option value="choose">---select---</option>
                 <option value="No">No</option>
-                <option value="<1 Gal"> less than 1 Gal</option>
-                <option value="1 to 5 Gals">1 to 5 Gals</option>
-                <option value="1-2 Large Trash Bags">1-2 Large Trash Bags</option>
-                <option value="> 2 Trash Bags">more than 2 Trash Bags</option>
-                <option value="Truck load">truck load</option>
+                <option value="<1Gal"> less than 1 Gallon</option>
+                <option value="1-3Gal">1 to 3 Gallons</option>
+                <option value="1-2LTBs">1-2 Large Trash Bags</option>
+                <option value=">2LTBs">more than 2 Trash Bags</option>
+                <option value="TruckLoad">truck load</option>
             </select><br/>
 
             <label>Is human waste or TP present within 100 yards?(if yes how much?)</label><br/>
@@ -246,7 +246,7 @@ console.log('answers:', answers)
                 <option value="No">No</option>
                 <option value="1">1</option>
                 <option value="2-5">2-5</option>
-                <option value="More than 5">more than 5</option>
+                <option value="5+">5+</option>
             </select><br/>
 
             <label>Are non-system social trails, less than 3 foot wide, present?(if yes, feet in length)</label><br/>
@@ -288,7 +288,7 @@ console.log('answers:', answers)
                 <label>Signage fix</label>
                 <input type='checkbox' name="doneSignageFix"onChange={eventHandler}></input><br/>
                 <label>Containment repair</label>
-                <input type='checkbox' name="doneContainment repair"onChange={eventHandler}></input><br/>
+                <input type='checkbox' name="doneContainmentRepair"onChange={eventHandler}></input><br/>
                 <label>Fire ring removal</label>
                 <input type='checkbox' name="doneFireRingRemoval"onChange={eventHandler}></input><br/>
 
