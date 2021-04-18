@@ -3,7 +3,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'rec
 
 
 function Chart(props){
-    // console.log(props.title,props)
+    // console.log("chartprops",props)
 
     // const datadistrurbance = [
     //     {
@@ -17,7 +17,7 @@ function Chart(props){
     //   ];
     return(
         <BarChart
-          width={300}
+          width={500}
           height={175}
           data={props.form}
           margin={{
@@ -30,7 +30,7 @@ function Chart(props){
           <XAxis dataKey="name" />
           <YAxis />
           <Tooltip />
-          <Legend />
+          {/* <Legend /> */}
           {/* <Bar dataKey="pv" fill="#8884d8" /> */}
           <Bar dataKey="uv" fill="#82ca9d" />
           {/* <Bar datakey="na" fill="#000000"/> */}

@@ -145,20 +145,20 @@ console.log('answers:', answers)
             <label>Ground Disturbance Rating</label><br/>
             <select name="groundDisturbance" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="SiteHasRecovered">Site has Recovered</option>
-                <option value="FlattenedNotPermanent">vegetation is flattened but not permanently damaged</option>
-                <option value="WornAway">vegetation is worn away around fire place or center of activity</option>
-                <option value="BareSoil">bare soil is exposed on most of site</option>
+                <option value="Recovered">Site has Recovered</option>
+                <option value="Flat">vegetation is flattened but not permanently damaged</option>
+                <option value="Worn">vegetation is worn away around fire place or center of activity</option>
+                <option value="Bare">bare soil is exposed on most of site</option>
             </select><br/>
 
             <label>Disturbed Area Rating in square footage</label><br/>
             <select  name="disturbedArea" onChange={eventHandler}>
                 <option value="choose">---select---</option>
-                <option value="1-5sqft">1-5 sqft</option>
-                <option value="5-10sqft">5-10 sqft</option>
-                <option value="10-25sqft">10-25 sqft</option>
-                <option value="25-50 sqft">25-50 sqft</option>
-                <option value="MoreThan50sqft">more than 50 sqft</option>
+                <option value="1-5">1-5 sqft</option>
+                <option value="5-10">5-10 sqft</option>
+                <option value="10-25">10-25 sqft</option>
+                <option value="25-50">25-50 sqft</option>
+                <option value="+50">more than 50 sqft</option>
             </select><br/>
 
             <label>Trees Damaged; count only trees that: Were live trees larger than 4 inches that have been cut down, have scarring over more than a square foot ot the tree and /or
@@ -217,8 +217,8 @@ console.log('answers:', answers)
             <select  name="contained" onChange={eventHandler}>
                 <option value="choose">---select---</option>
                 <option value="No">No</option>
-                <option value="EngineeredFencing/boulders">engineered fencing/boulders</option>
-                <option value="NaturallyContained">naturally contained by rocks/trees etc.</option>
+                <option value="Engineered">engineered fencing/boulders</option>
+                <option value="Natural">naturally contained by rocks/trees etc.</option>
             </select><br/>
 
             <label>Is there possible residential use?</label><br/>
@@ -233,10 +233,10 @@ console.log('answers:', answers)
             <select  name="trash" onChange={eventHandler}>
                 <option value="choose">---select---</option>
                 <option value="No">No</option>
-                <option value="<1Gal"> less than 1 Gallon</option>
-                <option value="1-3Gal">1 to 3 Gallons</option>
-                <option value="1-2LTBs">1-2 Large Trash Bags</option>
-                <option value=">2LTBs">more than 2 Trash Bags</option>
+                <option value="<1G"> less than 1 Gallon</option>
+                <option value="1-3G">1 to 3 Gallons</option>
+                <option value="1-2TB">1-2 Large Trash Bags</option>
+                <option value=">2TB">more than 2 Trash Bags</option>
                 <option value="TruckLoad">truck load</option>
             </select><br/>
 

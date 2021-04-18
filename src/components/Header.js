@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom'
 
 function Header () {
     return(
-        <>
+        <div style={{paddingBottom:'5%'}}>
             <h1>
                 Campsite Manager
             </h1>    
@@ -17,7 +17,7 @@ function Header () {
                 Manager
             </Link>
 
-        </>
+        </div>
     )
 }
 

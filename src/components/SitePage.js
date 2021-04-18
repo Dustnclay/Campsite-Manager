@@ -7,16 +7,12 @@ import{connect} from 'react-redux'
 
 
 function SitePage(props) {
-  console.log("props in sitePage",props.allState)
+  console.log("props in sitePage allstate",props.allState)
   let complete = false
 
   const db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
 useEffect(() => {
   props.getForms(props.currentSite)
-  // console.log("axios on sitePage",)
-  //     axios.get(db_url + props.currentSite)
-  //   .then(res => populateTotal(res.data))
-  //   .catch(err => console.log(err))  
 },[props.currentSite])
 
  
@@ -131,36 +127,51 @@ const [total,setTotal] = useState({
 
     return(
         <>  
+              {props.currentSite && <h3>current site {props.currentSite}</h3>}
               <p>has it been contained?</p>
-              <Chart title={"contained"} form={props.allState.contained}/>          
+              <Chart form={props.allState.contained}/>
+              <p>residential?</p>
+              <Chart form={props.allState.residential}/>             
               <p>is there erosion?</p>
-              <Chart title={"contained"} form={total.erosion}/> 
+              <Chart form={props.allState.erosion}/> 
+              <p>is there ground disturbance?</p>
+              <Chart form={props.allState.groundDisturbance}/> 
+              <p>is the area disturbed?</p>
+              <Chart form={props.allState.disturbedArea}/>
+              <p>are the trees damaged?</p>
+              <Chart form={props.allState.treesDamaged}/>  
               <p>is there human waste?</p>
-              <Chart title={"contained"} form={total.humanWaste}/> 
+              <Chart form={props.allState.humanWaste}/> 
               <p>is there improvments?</p>
-              <Chart title={"contained"} form={total.improvements}/> 
+              <Chart form={props.allState.improvements}/> 
               <p>is near a trail?</p>
-              <Chart title={"contained"} form={total.nearTrail}/> 
+              <Chart form={props.allState.nearTrail}/> 
               <p>is it near water?</p>
-              <Chart title={"contained"} form={total.nearWater}/> 
+              <Chart form={props.allState.nearWater}/> 
+              <p>how long is the social trail?</p>
+              <Chart form={props.allState.socialTrail}/> 
+              <p>how long is the social road?</p>
+              <Chart form={props.allState.socialRoad}/> 
               <p>is there trash?</p>
-              <Chart title={"contained"} form={total.trash}/> 
+              <Chart  form={props.allState.trash}/> 
+              <p>Are there fire Rings?</p>
+              <Chart  form={props.allState.fireRings}/> 
               <p>containment repair done?</p>
-              <Chart title={"contained"} form={total.doneContainmentRepair}/> 
+              <Chart  form={props.allState.doneContainmentRepair}/> 
               <p>need containment repair?</p>
-              <Chart title={"contained"} form={total.needContainmentRepair}/> 
+              <Chart  form={props.allState.needContainmentRepair}/> 
               <p>fire ring removal done?</p>
-              <Chart title={"contained"} form={total.doneFireRingRemoval}/> 
+              <Chart  form={props.allState.doneFireRingRemoval}/> 
               <p>need fire ringsremoved?</p>
-              <Chart title={"contained"} form={total.needFireRingRemoval}/> 
+              <Chart  form={props.allState.needFireRingRemoval}/> 
               <p>signage fixed?</p>
-              <Chart title={"contained"} form={total.doneSignageFix}/> 
+              <Chart  form={props.allState.doneSignageFix}/> 
               <p>need sigange fix?</p>
-              <Chart title={"contained"} form={total.needSignageFix}/> 
+              <Chart  form={props.allState.needSignageFix}/> 
               <p>trash picked up?</p>
-              <Chart title={"contained"} form={total.doneTrashPickup}/> 
+              <Chart  form={props.allState.doneTrashPickup}/> 
               <p>need trash pickup?</p>
-              <Chart title={"contained"} form={total.needTrashPickup}/>               
+              <Chart  form={props.allState.needTrashPickup}/>               
 
         </>
     )

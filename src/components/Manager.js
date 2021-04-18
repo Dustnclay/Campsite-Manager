@@ -14,8 +14,8 @@ function Manager(props) {
     },props.siteArr)
 
         return(
-            <>
-            <h1>Manager Page</h1>
+            <div>
+                <span>Reviewed sites:</span>
              {props.siteArr.map(item => {
                 return(
                    <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
@@ -24,7 +24,7 @@ function Manager(props) {
                 <Route path={`/manager/${props.currentSite}`}>
                     <SitePage currentSite={props.currentSite}/>
                 </Route>
-            </>
+            </div>
         )        
     }
 
