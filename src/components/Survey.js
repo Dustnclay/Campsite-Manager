@@ -53,7 +53,7 @@ function Survey() {
     })
 
     const [answers,setAnswers] =useState({
-        id:Date.now(),
+        
         location:'',
         collector:'',
         survey:'NewSurvey',
