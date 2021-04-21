@@ -53,6 +53,7 @@ function Survey() {
     })
 
     const [answers,setAnswers] =useState({
+        id:Date.now(),
         location:'',
         collector:'',
         survey:'NewSurvey',
@@ -107,8 +108,10 @@ function Survey() {
     })
 
     const submitButton = (event)=>{
+        const strung = JSON.stringify(answers)
+        console.log("strung",strung)
         event.preventDefault()
-        axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",answers)
+        axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",strung)
         .then( response => console.log(response))
         .catch( err => console.log(err))
         // setAnswers({

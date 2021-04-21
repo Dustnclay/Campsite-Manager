@@ -1,5 +1,4 @@
 
-import React from 'react';
 
 import {
   FETCH_SITE_NUM,
@@ -802,31 +801,31 @@ function populateTotal (responseForms){
         tempstate.treesDamaged[4].uv +=1
         tallyTemplate = { ...tallyTemplate , treesDamaged: tempstate.treesDamaged}
       }
-      if (res. socialTrail === "0-10"){
-        tempstate. socialTrail[0].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialTrail: tempstate. socialTrail}
-      }else if (res. socialTrail === "10-25"){
-        tempstate. socialTrail[1].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialTrail: tempstate. socialTrail}
-      }else if (res. socialTrail === "25-100"){
-        tempstate. socialTrail[2].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialTrail: tempstate. socialTrail}
-      }else if (res. socialTrail === "100+"){
-        tempstate. socialTrail[3].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialTrail: tempstate. socialTrail}
+      if (res.socialTrail === "0-10"){
+        tempstate.socialTrail[0].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
+      }else if (res.socialTrail === "10-25"){
+        tempstate.socialTrail[1].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
+      }else if (res.socialTrail === "25-100"){
+        tempstate.socialTrail[2].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
+      }else if (res.socialTrail === "100+"){
+        tempstate.socialTrail[3].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
       } 
-      if (res. socialRoad === "0-10"){
-        tempstate. socialRoad[0].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialRoad: tempstate. socialRoad}
-      }else if (res. socialRoad === "10-25"){
-        tempstate. socialRoad[1].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialRoad: tempstate. socialRoad}
-      }else if (res. socialRoad === "25-100"){
-        tempstate. socialRoad[2].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialRoad: tempstate. socialRoad}
-      }else if (res. socialRoad === "100+"){
-        tempstate. socialRoad[3].uv +=1
-        tallyTemplate = { ...tallyTemplate ,  socialRoad: tempstate. socialRoad}
+      if (res.socialRoad === "0-10"){
+        tempstate.socialRoad[0].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
+      }else if (res.socialRoad === "10-25"){
+        tempstate.socialRoad[1].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
+      }else if (res.socialRoad === "25-100"){
+        tempstate.socialRoad[2].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
+      }else if (res.socialRoad === "100+"){
+        tempstate.socialRoad[3].uv +=1
+        tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
       } 
       if (res.residential === "Yes"){
         tempstate.residential[0].uv +=1

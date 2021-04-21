@@ -1,6 +1,5 @@
 
-import React, {useEffect,useState} from "react"
-import axios from 'axios'
+import React, {useEffect} from "react"
 import Chart from "./Chart"
 import {getForms} from '../actions'
 import{connect} from 'react-redux'
@@ -8,169 +7,57 @@ import{connect} from 'react-redux'
 
 function SitePage(props) {
   console.log("props in sitePage allstate",props.allState)
-  let complete = false
 
-  const db_url = process.env.DB_URL || "https://campsite-manager.herokuapp.com/form/"
-useEffect(() => {
-  props.getForms(props.currentSite)
-},[props.currentSite])
-
- 
-const [total,setTotal] = useState({
-  "contained":[
-      {name: 'Yes',
-        uv: 0,  
-      },
-      {name: 'No',
-        uv: 0,
-      }],
-    "erosion":[
-      {name: 'Yes',
-        uv: 0,
-      },
-      {name: 'No',
-        uv: 0,
-      }],
-    "humanWaste":[
-      {name: 'Yes',
-        uv: 0,
-      },
-      {name: 'No',
-        uv: 0,
-      }],
-    "improvements":[
-      {name: 'Yes',
-        uv: 0,
-      },
-      {name: 'No',
-        uv: 0,
-      }],
-    "nearWater":[
-      {name: 'Yes',
-        uv: 0,
-      },
-      {name: 'No',
-        uv: 0,
-      }],
-    "nearTrail":[
-      {name: 'Yes',
-        uv: 0,
-      },
-      {name: 'No',
-        uv: 0,
-      }],
-    "trash":[
-      {name: 'Yes',
-        uv: 0,
-      },
-      {name: 'No',
-        uv: 0,
-      }],
-    "doneContainmentRepair":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-    "doneFireRingRemoval":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-    "doneSignageFix":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-    "doneTrashPickup":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-    "needContainmentRepair":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-    "needFireRingRemoval":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-    "needSignageFix":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-    "needTrashPickup":[
-      {name: 'true',
-        uv: 0,
-      },
-      {name: 'false',
-        uv: 0,
-      }],
-  })
-
+  useEffect(() => {
+    props.getForms(props.currentSite)
+  },[props.currentSite])
 
     return(
         <>  
               {props.currentSite && <h3>current site {props.currentSite}</h3>}
-              <p>has it been contained?</p>
+              <p>Has ithe site been contained?</p>
               <Chart form={props.allState.contained}/>
-              <p>residential?</p>
+              <p>Is there possible residential use?</p>
               <Chart form={props.allState.residential}/>             
-              <p>is there erosion?</p>
+              <p>Has erosion occured?</p>
               <Chart form={props.allState.erosion}/> 
-              <p>is there ground disturbance?</p>
+              <p>In what state is the vegitation?</p>
               <Chart form={props.allState.groundDisturbance}/> 
-              <p>is the area disturbed?</p>
+              <p>Square footage of disturbed area?</p>
               <Chart form={props.allState.disturbedArea}/>
-              <p>are the trees damaged?</p>
+              <p>How many trees are damaged?</p>
               <Chart form={props.allState.treesDamaged}/>  
-              <p>is there human waste?</p>
+              <p>Within the site how many spots have human waste?</p>
               <Chart form={props.allState.humanWaste}/> 
-              <p>is there improvments?</p>
+              <p>Have improvments been made to the site?</p>
               <Chart form={props.allState.improvements}/> 
-              <p>is near a trail?</p>
+              <p>Is the site within 100 feet of a trail?</p>
               <Chart form={props.allState.nearTrail}/> 
-              <p>is it near water?</p>
+              <p>Is the site within 100 feet of water?</p>
               <Chart form={props.allState.nearWater}/> 
-              <p>how long is the social trail?</p>
+              <p>If a social trail is present, how long in square foot is it?</p>
               <Chart form={props.allState.socialTrail}/> 
-              <p>how long is the social road?</p>
+              <p>If a social road is present, how long in square foot is it?</p>
               <Chart form={props.allState.socialRoad}/> 
-              <p>is there trash?</p>
+              <p>How much trash is present, in gallons or trashbags, or a truckload?</p>
               <Chart  form={props.allState.trash}/> 
-              <p>Are there fire Rings?</p>
+              <p>How many fire rings are present?</p>
               <Chart  form={props.allState.fireRings}/> 
-              <p>containment repair done?</p>
+              <p>Site has had containment repair done?</p>
               <Chart  form={props.allState.doneContainmentRepair}/> 
-              <p>need containment repair?</p>
+              <p>Site is in need of containment repair?</p>
               <Chart  form={props.allState.needContainmentRepair}/> 
-              <p>fire ring removal done?</p>
+              <p>Have fire rings been removed?</p>
               <Chart  form={props.allState.doneFireRingRemoval}/> 
-              <p>need fire ringsremoved?</p>
+              <p>Does this site need fire rings removed?</p>
               <Chart  form={props.allState.needFireRingRemoval}/> 
-              <p>signage fixed?</p>
+              <p>Has the site's signage been fixed?</p>
               <Chart  form={props.allState.doneSignageFix}/> 
-              <p>need sigange fix?</p>
+              <p>Does this site need signage fixed?</p>
               <Chart  form={props.allState.needSignageFix}/> 
-              <p>trash picked up?</p>
+              <p>Has the trash been picked up?</p>
               <Chart  form={props.allState.doneTrashPickup}/> 
-              <p>need trash pickup?</p>
+              <p>Does the site need trash pickup?</p>
               <Chart  form={props.allState.needTrashPickup}/>               
 
         </>

@@ -8,10 +8,10 @@ import {getSite,getNo} from '../actions'
 
 function Manager(props) {
     // console.log("props",props)
-
+    const siteArr = props.siteArr
     useEffect(() => {
     props.getSite()
-    },props.siteArr)
+    },siteArr)
 
         return(
             <div>
