@@ -712,45 +712,45 @@ function populateTotal (responseForms){
       if (res.ground_disturbance === "Recovered"){
         tempstate.groundDisturbance[0].uv +=1
         tallyTemplate = { ...tallyTemplate , groundDisturbance: tempstate.groundDisturbance}
-      }else if (res.groundDisturbance === "Flat"){
+      }else if (res.ground_disturbance === "Flat"){
         tempstate.groundDisturbance[1].uv +=1
         tallyTemplate = { ...tallyTemplate , groundDisturbance: tempstate.groundDisturbance}
-      }else if (res.groundDisturbance === "Worn"){
+      }else if (res.ground_disturbance === "Worn"){
         tempstate.groundDisturbance[2].uv +=1
         tallyTemplate = { ...tallyTemplate , groundDisturbance: tempstate.groundDisturbance}
-      }else if (res.groundDisturbance === "Bare"){
+      }else if (res.ground_disturbance === "Bare"){
         tempstate.groundDisturbance[3].uv +=1
         tallyTemplate = { ...tallyTemplate , groundDisturbance: tempstate.groundDisturbance}
       }    
-      if (res.disturbedArea === "1-5"){
+      if (res.disturbed_area === "1-5"){
         tempstate.disturbedArea[0].uv +=1
         tallyTemplate = { ...tallyTemplate , disturbedArea: tempstate.disturbedArea}
-      }else if (res.disturbedArea === "5-10"){
+      }else if (res.disturbed_area === "5-10"){
         tempstate.disturbedArea[1].uv +=1
         tallyTemplate = { ...tallyTemplate , disturbedArea: tempstate.disturbedArea}
-      }else if (res.disturbedArea === "10-25"){
+      }else if (res.disturbed_area === "10-25"){
         tempstate.disturbedArea[2].uv +=1
         tallyTemplate = { ...tallyTemplate , disturbedArea: tempstate.disturbedArea}
-      }else if (res.disturbedArea === "25-50"){
+      }else if (res.disturbed_area === "25-50"){
         tempstate.disturbedArea[3].uv +=1
         tallyTemplate = { ...tallyTemplate , disturbedArea: tempstate.disturbedArea}  
-      }else if (res.disturbedArea === "+50"){
+      }else if (res.disturbed_area === "+50"){
         tempstate.disturbedArea[4].uv +=1
         tallyTemplate = { ...tallyTemplate , disturbedArea: tempstate.disturbedArea}
       }
-      if (res.fireRings === "0"){
+      if (res.fire_rings === "0"){
         tempstate.fireRings[0].uv +=1
         tallyTemplate = { ...tallyTemplate , fireRings: tempstate.fireRings}
-      }else if (res.fireRings === "1"){
+      }else if (res.fire_rings === "1"){
         tempstate.fireRings[1].uv +=1
         tallyTemplate = { ...tallyTemplate , fireRings: tempstate.fireRings}
-      }else if (res.fireRings === "2"){
+      }else if (res.fire_rings === "2"){
         tempstate.fireRings[2].uv +=1
         tallyTemplate = { ...tallyTemplate , fireRings: tempstate.fireRings}
-      }else if (res.fireRings === "3"){
+      }else if (res.fire_rings === "3"){
         tempstate.fireRings[3].uv +=1
         tallyTemplate = { ...tallyTemplate , fireRings: tempstate.fireRings}  
-      }else if (res.fireRings === "4+"){
+      }else if (res.fire_rings === "4+"){
         tempstate.fireRings[4].uv +=1
         tallyTemplate = { ...tallyTemplate , fireRings: tempstate.fireRings}
       }
@@ -773,58 +773,58 @@ function populateTotal (responseForms){
         tempstate.trash[5].uv +=1
         tallyTemplate = { ...tallyTemplate , trash: tempstate.trash}
       }
-      if (res.humanWaste === "No"){
+      if (res.human_waste === "No"){
         tempstate.humanWaste[0].uv +=1
         tallyTemplate = { ...tallyTemplate , humanWaste: tempstate.humanWaste}
-      }else if (res.humanWaste === "1"){
+      }else if (res.human_waste === "1"){
         tempstate.humanWaste[1].uv +=1
         tallyTemplate = { ...tallyTemplate , humanWaste: tempstate.humanWaste}
-      }else if (res.humanWaste === "2-5"){
+      }else if (res.human_waste === "2-5"){
         tempstate.humanWaste[2].uv +=1
         tallyTemplate = { ...tallyTemplate , humanWaste: tempstate.humanWaste}
-      }else if (res.humanWaste === "5+"){
+      }else if (res.human_waste === "5+"){
         tempstate.humanWaste[3].uv +=1
         tallyTemplate = { ...tallyTemplate , humanWaste: tempstate.humanWaste}
       } 
       if (res.treesDamaged === "0"){
-        tempstate.treesDamaged[0].uv +=1
+        tempstate.trees_damaged[0].uv +=1
         tallyTemplate = { ...tallyTemplate , treesDamaged: tempstate.treesDamaged}
-      }else if (res.treesDamaged === "1-2"){
+      }else if (res.trees_damaged === "1-2"){
         tempstate.treesDamaged[1].uv +=1
         tallyTemplate = { ...tallyTemplate , treesDamaged: tempstate.treesDamaged}
-      }else if (res.treesDamaged === "3-5"){
+      }else if (res.trees_damaged === "3-5"){
         tempstate.treesDamaged[2].uv +=1
         tallyTemplate = { ...tallyTemplate , treesDamaged: tempstate.treesDamaged}
-      }else if (res.treesDamaged === "5-10"){
+      }else if (res.trees_damaged === "5-10"){
         tempstate.treesDamaged[3].uv +=1
         tallyTemplate = { ...tallyTemplate , treesDamaged: tempstate.treesDamaged}  
-      }else if (res.treesDamaged === "+10"){
+      }else if (res.trees_damaged === "+10"){
         tempstate.treesDamaged[4].uv +=1
         tallyTemplate = { ...tallyTemplate , treesDamaged: tempstate.treesDamaged}
       }
-      if (res.socialTrail === "0-10"){
+      if (res.social_trail === "0-10"){
         tempstate.socialTrail[0].uv +=1
         tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
-      }else if (res.socialTrail === "10-25"){
+      }else if (res.social_trail === "10-25"){
         tempstate.socialTrail[1].uv +=1
         tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
-      }else if (res.socialTrail === "25-100"){
+      }else if (res.social_trail === "25-100"){
         tempstate.socialTrail[2].uv +=1
         tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
-      }else if (res.socialTrail === "100+"){
+      }else if (res.social_trail === "100+"){
         tempstate.socialTrail[3].uv +=1
         tallyTemplate = { ...tallyTemplate , socialTrail: tempstate.socialTrail}
       } 
-      if (res.socialRoad === "0-10"){
+      if (res.social_road === "0-10"){
         tempstate.socialRoad[0].uv +=1
         tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
-      }else if (res.socialRoad === "10-25"){
+      }else if (res.social_road === "10-25"){
         tempstate.socialRoad[1].uv +=1
         tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
-      }else if (res.socialRoad === "25-100"){
+      }else if (res.social_road === "25-100"){
         tempstate.socialRoad[2].uv +=1
         tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
-      }else if (res.socialRoad === "100+"){
+      }else if (res.social_road === "100+"){
         tempstate.socialRoad[3].uv +=1
         tallyTemplate = { ...tallyTemplate , socialRoad: tempstate.socialRoad}
       } 
@@ -835,17 +835,17 @@ function populateTotal (responseForms){
         tempstate.residential[1].uv +=1
         tallyTemplate = { ...tallyTemplate , residential: tempstate.residential}
       } 
-      if (res.nearTrail === "Yes"){
+      if (res.near_trail === "Yes"){
         tempstate.nearTrail[0].uv +=1
         tallyTemplate = { ...tallyTemplate , nearTrail: tempstate.nearTrail}
-      }else if (res.nearTrail === "No"){
+      }else if (res.near_trail === "No"){
         tempstate.nearTrail[1].uv +=1
         tallyTemplate = { ...tallyTemplate , nearTrail: tempstate.nearTrail}
       } 
-      if (res.nearWater === "Yes"){
+      if (res.near_water === "Yes"){
         tempstate.nearWater[0].uv +=1
         tallyTemplate = { ...tallyTemplate , nearWater: tempstate.nearWater}
-      }else if (res.nearWater === "No"){
+      }else if (res.near_water === "No"){
         tempstate.nearWater[1].uv +=1
         tallyTemplate = { ...tallyTemplate , nearWater: tempstate.nearWater}
       } 
@@ -863,59 +863,59 @@ function populateTotal (responseForms){
         tempstate.erosion[1].uv +=1
         tallyTemplate = { ...tallyTemplate , erosion: tempstate.erosion}
       } 
-      if (res.needContainmentRepair === 'true'){
+      if (res.need_containment_repair === 'true'){
         tempstate.needContainmentRepair[0].uv +=1
         tallyTemplate = { ...tallyTemplate , needContainmentRepair: tempstate.needContainmentRepair}
-      }else if (res.needContainmentRepair === "false"){
+      }else if (res.need_containment_repair === "false"){
         tempstate.needContainmentRepair[1].uv +=1
         tallyTemplate = { ...tallyTemplate , needContainmentRepair: tempstate.needContainmentRepair}
       } 
-      if (res.doneContainmentRepair === 'true'){
+      if (res.done_containment_repair === 'true'){
         tempstate.doneContainmentRepair[0].uv +=1
         tallyTemplate = { ...tallyTemplate , doneContainmentRepair: tempstate.doneContainmentRepair}
-      }else if (res.doneContainmentRepair === "false"){
+      }else if (res.done_containment_repair === "false"){
         tempstate.doneContainmentRepair[1].uv +=1
         tallyTemplate = { ...tallyTemplate , doneContainmentRepair: tempstate.doneContainmentRepair}
       } 
-      if (res.needFireRingRemoval === 'true'){
+      if (res.need_fire_ring_removal === 'true'){
         tempstate.needFireRingRemoval[0].uv +=1
         tallyTemplate = { ...tallyTemplate , needFireRingRemoval: tempstate.needFireRingRemoval}
-      }else if (res.needFireRingRemoval === "false"){
+      }else if (res.need_fire_ring_removal === "false"){
         tempstate.needFireRingRemoval[1].uv +=1
         tallyTemplate = { ...tallyTemplate , needFireRingRemoval: tempstate.needFireRingRemoval}
       } 
-      if (res.doneFireRingRemoval === 'true'){
+      if (res.done_fire_ring_removal === 'true'){
         tempstate.doneFireRingRemoval[0].uv +=1
         tallyTemplate = { ...tallyTemplate , doneFireRingRemoval: tempstate.doneFireRingRemoval}
-      }else if (res.doneFireRingRemoval === "false"){
+      }else if (res.done_fire_ring_removal === "false"){
         tempstate.doneFireRingRemoval[1].uv +=1
         tallyTemplate = { ...tallyTemplate , doneFireRingRemoval: tempstate.doneFireRingRemoval}
       } 
-      if (res.needSignageFix === 'true'){
+      if (res.need_signage_fix === 'true'){
         tempstate.needSignageFix[0].uv +=1
         tallyTemplate = { ...tallyTemplate , needSignageFix: tempstate.needSignageFix}
-      }else if (res.needSignageFix === "false"){
+      }else if (res.need_signage_fix === "false"){
         tempstate.needSignageFix[1].uv +=1
         tallyTemplate = { ...tallyTemplate , needSignageFix: tempstate.needSignageFix}
       } 
-      if (res.doneSignageFix === 'true'){
+      if (res.done_signage_fix === 'true'){
         tempstate.doneSignageFix[0].uv +=1
         tallyTemplate = { ...tallyTemplate , doneSignageFix: tempstate.doneSignageFix}
-      }else if (res.doneSignageFix === "false"){
+      }else if (res.done_signage_fix === "false"){
         tempstate.doneSignageFix[1].uv +=1
         tallyTemplate = { ...tallyTemplate , doneSignageFix: tempstate.doneSignageFix}
       } 
-      if (res.needTrashPickup === 'true'){
+      if (res.need_trash_pickup === 'true'){
         tempstate.needTrashPickup[0].uv +=1
         tallyTemplate = { ...tallyTemplate , needTrashPickup: tempstate.needTrashPickup}
-      }else if (res.needTrashPickup === "false"){
+      }else if (res.need_trash_pickup === "false"){
         tempstate.needTrashPickup[1].uv +=1
         tallyTemplate = { ...tallyTemplate , needTrashPickup: tempstate.needTrashPickup}
       } 
-      if (res.doneTrashPickup === 'true'){
+      if (res.done_trash_pickup === 'true'){
         tempstate.doneTrashPickup[0].uv +=1
         tallyTemplate = { ...tallyTemplate , doneTrashPickup: tempstate.doneTrashPickup}
-      }else if (res.doneTrashPickup === "false"){
+      }else if (res.done_trash_pickup === "false"){
         tempstate.doneTrashPickup[1].uv +=1
         tallyTemplate = { ...tallyTemplate , doneTrashPickup: tempstate.doneTrashPickup}
       } 
