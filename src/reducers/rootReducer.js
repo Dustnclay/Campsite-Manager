@@ -468,6 +468,7 @@ needTrashPickup:[
 }  
 
 function populateTotal (responseForms){
+  console.log("responseForms in Front end reducer",responseForms)
   const tempstate = {
     contained:[
       {name: 'No', 
@@ -708,7 +709,7 @@ function populateTotal (responseForms){
         tempstate.contained[2].uv +=1
         tallyTemplate = { ...tallyTemplate , contained: tempstate.contained}
       }  
-      if (res.groundDisturbance === "Recovered"){
+      if (res.ground_disturbance === "Recovered"){
         tempstate.groundDisturbance[0].uv +=1
         tallyTemplate = { ...tallyTemplate , groundDisturbance: tempstate.groundDisturbance}
       }else if (res.groundDisturbance === "Flat"){
