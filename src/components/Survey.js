@@ -10,7 +10,7 @@ function Survey() {
         .validate(event.target.type === 'checkbox' ? event.target.checked: event.target.value)
         .then(valid => {
             setErrors({
-                ...errors,
+                ...errors, 
                 [event.target.name]:''
             })
         })
