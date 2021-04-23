@@ -109,9 +109,9 @@ function Survey() {
 
     const submitButton = (event)=>{
 
-        console.log("answers sent from the survey component",strung)
+        console.log("answers sent from the survey component",answers)
         event.preventDefault()
-        axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",strung)
+        axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",answers)
         .then( response => console.log(response))
         .catch( err => console.log(err))
         // setAnswers({
