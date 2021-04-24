@@ -108,15 +108,9 @@ function Survey() {
     })
 
     const submitButton = (event)=>{
-
-        console.log("answers sent from the survey component",answers)
-        event.preventDefault()
         axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",answers)
         .then( response => console.log(response))
         .catch( err => console.log(err))
-        // setAnswers({
-        //     location:'',collector:'',survey:'',groundDisturbance:'',disturbedArea:'',treesDamaged:'',nearWater:'',nearTrail:'',erosion:'',fireRings:'',improvements:'',contained:'',residential:'',trash:'',humanWaste:'',socialTrails:'',socialRoads:'',actionTrash:false,actionSign:false,actionRepair:false,actionFire:false,actionTaken:false,date:'',hours:'',notes:'', image:''})
-        //     axios.post('https://reqres.in/api/users', answers)
 
     }
 
@@ -136,13 +130,6 @@ console.log('answers:', answers)
 
             <label>Collector Name</label><br/>
             <input type='text' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
-
-            {/* <label>Is this a New survey or Re-survey</label><br/>
-            <select name="survey" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="NewSurvey">New Survey</option>
-                <option value="Re-survey">Re-survey</option>
-            </select><br/> */}
 
             <h3>Impact Rating</h3><br/>
             <label>Ground Disturbance Rating</label><br/>
@@ -303,9 +290,6 @@ console.log('answers:', answers)
 
             <label>Notes</label><br/>
             <input name='notes' placeholder='notes' onChange={eventHandler}></input><br/>
-
-            {/* <label>Pictures taken</label> */}
-            {/* <input name='image' type='input' alt='campImage' onChange={eventHandler}></input><br/> */}
 
             <Button disabled={buttonDisabled} color='warning'>Submit</Button>
 

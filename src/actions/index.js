@@ -13,7 +13,6 @@ export const getSite = () => dispatch => {
     dispatch({type:FETCH_SITE_NUM});
     axios.get('https://campsite-manager.herokuapp.com/form/')
         .then(resp=>{
-            // console.log('resp-axioscall',resp.data)
             dispatch({ type: FETCH_SITE_SUCCESS, payload:resp})
         })
         .catch(err => {
