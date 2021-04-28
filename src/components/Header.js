@@ -10,7 +10,7 @@ function Header () {
                     <h1  className="display-3">Campsite Manager</h1>
 
                 <Row>
-                    <Col sm={{ size: 'auto', offset: 1 }}>
+                    <Col sm={{ size: 'auto', offset: 0 }}>
                         <Link to="/survey">
                             Survey
                         </Link>   

@@ -124,7 +124,6 @@ function Survey() {
             [event.target.name]:event.target.type === "checkbox"? event.target.checked: event.target.value
         })
     }
-console.log('answers:', answers)
     return(
         <Form onSubmit={submitButton} style={{padding:'1%'}}>
             <h3>General Info</h3><br/>
