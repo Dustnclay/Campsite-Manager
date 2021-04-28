@@ -2,8 +2,11 @@ import React, {useState, useEffect} from 'react'
 import {Form, Button} from 'reactstrap'
 import * as yup from 'yup'
 import axios from 'axios'
+import {useHistory} from 'react-router-dom'
 
 function Survey() {
+
+    let history = useHistory()
 
     const validate = (event) => {
         yup.reach(formSchema,event.target.name)
@@ -109,7 +112,7 @@ function Survey() {
     const submitButton = (event)=>{
         event.preventDefault()
         axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",answers)
-        .then( response => console.log(response))
+        .then( response => console.log(response),history.push("/"))
         .catch( err => console.log(err))
 
     }
