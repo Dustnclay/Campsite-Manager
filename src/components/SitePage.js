@@ -14,8 +14,8 @@ function SitePage(props) {
 
     return(
         <>  
-              {props.currentSite && <h3>current site {props.currentSite}</h3>}
-              <p>Has ithe site been contained?</p>
+              {props.currentSite && <h3>Current site: {props.currentSite}</h3>}
+              <p>Has the site been contained?</p>
               <Chart form={props.allState.contained}/>
               <p>Is there possible residential use?</p>
               <Chart form={props.allState.residential}/>             
@@ -39,7 +39,7 @@ function SitePage(props) {
               <Chart form={props.allState.socialTrail}/> 
               <p>If a social road is present, how long in square foot is it?</p>
               <Chart form={props.allState.socialRoad}/> 
-              <p>How much trash is present, in gallons or trashbags, or a truckload?</p>
+              <p>How much trash is present, in gallons, trashbags, or a truckload?</p>
               <Chart  form={props.allState.trash}/> 
               <p>How many fire rings are present?</p>
               <Chart  form={props.allState.fireRings}/> 

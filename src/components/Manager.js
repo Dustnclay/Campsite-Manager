@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
 import {Link,Route} from 'react-router-dom'
+import {Spinner} from 'reactstrap'
 import SitePage from "./SitePage"
 import{connect} from 'react-redux'
 import {getSite,getNo} from '../actions'
@@ -15,6 +16,7 @@ function Manager(props) {
         return(
             <div>
                 <span>Reviewed sites:</span>
+                {props.isFetching && <Spinner size="sm" color="secondary" />}
              {props.siteArr.map(item => {
                 return(
                    <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
@@ -29,7 +31,7 @@ function Manager(props) {
 
 
 const mapStateToProps = state => ({
-
+    isFetching: state.isFetching,
     currentSite: state.currentSite,
     siteArr: state.siteArr
   })

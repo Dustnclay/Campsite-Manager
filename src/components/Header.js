@@ -1,21 +1,30 @@
 import React from 'react'
+import {Jumbotron, Col, Row} from 'reactstrap'
 import {Link} from 'react-router-dom'
 
 
 function Header () {
     return(
-        <div style={{paddingBottom:'5%'}}>
-            <h1>
-                Campsite Manager
-            </h1>    
-            
-            <Link to="/survey" style={{marginLeft:'5%'}}>
-                Survey
-            </Link>   
+        <div>
+            <Jumbotron >
+                    <h1  className="display-3">Campsite Manager</h1>
 
-            <Link to="/manager"style={{marginLeft:'5%'}}>
-                Manager
-            </Link>
+                <Row>
+                    <Col sm={{ size: 'auto', offset: 1 }}>
+                        <Link to="/survey">
+                            Survey
+                        </Link>   
+                    </Col>
+                    <Col sm={{ size: 'auto', offset: 1 }}>
+                        <Link to="/manager" >
+                            Manager
+                        </Link>                        
+                    </Col>
+                </Row>
+            </Jumbotron>
+
+            
+
 
         </div>
     )

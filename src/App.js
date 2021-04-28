@@ -17,7 +17,7 @@ function App() {
       <Survey/>
     </Route >
     <Route path="/manager">
-      <Manager/>
+      <Manager style={{Color:'red'}}/>
     </Route>
   </Switch>
 </Router>
