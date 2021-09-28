@@ -19,15 +19,22 @@ label{
   font-weight: 600;
 }
 
+.survey{
+  padding:5% 15% 0% 15%
+}
+
 .flex{
   display:flex;
   justify-content: flex-start;
 }
 .grouped{
-  width:40%;
+  width:50%;
   padding-right: 10%;
 }
 .select{
+  width:40%
+}
+.longText{
   width:40%
 }
 
@@ -37,6 +44,12 @@ label{
   }
   .grouped{
     width:90%;
+  }
 
+  .select{
+    width:70%
+  }
+  .survey{
+    padding:5% 5% 0% 5%
   }
 }
