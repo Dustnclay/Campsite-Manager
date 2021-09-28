@@ -125,174 +125,225 @@ function Survey() {
         })
     }
     return(
-        <Form onSubmit={submitButton} style={{padding:'1%'}}>
+        <Form onSubmit={submitButton} style={{paddingTop:'5%', paddingLeft:'10%', paddingRight:'10%'}}>
+            
             <h3>General Info</h3><br/>
-            <label>Location Name</label><br/>
-            <input type='text' name='location' value={answers.location} onChange={eventHandler}></input><br/>
 
-            <label>Collector Name</label><br/>
-            <input type='text' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
+            <div class="flex"> 
+                <div class="form-group grouped">     
+                    <label>Location Name</label><br/>
+                    <input type='text' name='location' value={answers.location} onChange={eventHandler}></input><br/>
+                </div>
+                
+                <div class="form-group grouped">
+                    <label>Collector Name</label><br/>
+                    <input type='text' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
+                </div>   
+            </div>
 
-            <h3>Impact Rating</h3><br/>
-            <label>Ground Disturbance Rating</label><br/>
-            <select name="groundDisturbance" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="Recovered">Site has Recovered</option>
-                <option value="Flat">vegetation is flattened but not permanently damaged</option>
-                <option value="Worn">vegetation is worn away around fire place or center of activity</option>
-                <option value="Bare">bare soil is exposed on most of site</option>
-            </select><br/>
+            <div class="form-group">
+                <h3>Impact Rating</h3><br/>
+                <label>Ground Disturbance Rating</label><br/>
+                <select name="groundDisturbance" onChange={eventHandler} class="select" >
+                    <option value="choose">---select---</option>
+                    <option value="Recovered">Site has Recovered</option>
+                    <option value="Flat">vegetation is flattened but not permanently damaged</option>
+                    <option value="Worn">vegetation is worn away around fire place or center of activity</option>
+                    <option value="Bare">bare soil is exposed on most of site</option>
+                </select><br/>
+            </div>
 
-            <label>Disturbed Area Rating in square footage</label><br/>
-            <select  name="disturbedArea" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="1-5">1-5 sqft</option>
-                <option value="5-10">5-10 sqft</option>
-                <option value="10-25">10-25 sqft</option>
-                <option value="25-50">25-50 sqft</option>
-                <option value="+50">more than 50 sqft</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Disturbed Area Rating in square footage</label><br/>
+                <select  name="disturbedArea" onChange={eventHandler} class="select" >
+                    <option value="choose">---select---</option>
+                    <option value="1-5">1-5 sqft</option>
+                    <option value="5-10">5-10 sqft</option>
+                    <option value="10-25">10-25 sqft</option>
+                    <option value="25-50">25-50 sqft</option>
+                    <option value="+50">more than 50 sqft</option>
+                </select><br/>
+            </div>
 
-            <label>Trees Damaged; count only trees that: Were live trees larger than 4 inches that have <br/>
-                 been cut down, have scarring over more than a square foot on the tree and /or<br/>
-                have more that 3 sqft of roots exposed and/or have more than 5 branches broken.<br/>
-                Also count any Krumholtz trees of any size with visible damage to live trees/ limbs.</label><br/>
-            <select  name="treesDamaged" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="0">0</option>
-                <option value="1-2">1-2</option>
-                <option value="3-5">3-5</option>
-                <option value="5-10">5-10</option>
-                <option value="+10">+10</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Trees Damaged; count only trees that: Were live trees larger than 4 inches that have <br/>
+                    been cut down, have scarring over more than a square foot on the tree and /or<br/>
+                    have more that 3 sqft of roots exposed and/or have more than 5 branches broken.<br/>
+                    Also count any Krumholtz trees of any size with visible damage to live trees/ limbs.</label><br/>
+                <select  name="treesDamaged" class="select"  onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="0">0</option>
+                    <option value="1-2">1-2</option>
+                    <option value="3-5">3-5</option>
+                    <option value="5-10">5-10</option>
+                    <option value="+10">+10</option>
+                </select><br/>
+            </div>
 
-            <h3>Resource Impacts</h3><br/>
-            <label>Is the site located within 100 feet of water?</label><br/>
-            <select name="nearWater" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select><br/>
+            <div class="form-group">
+                <h3>Resource Impacts</h3><br/>
+                <label>Is the site located within 100 feet of water?</label><br/>
+                <select name="nearWater" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br/>
+            </div>
 
-            <label>Is the site located within 100 feet of a trail?</label><br/>
-            <select  name="nearTrail" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select><br/>  
+            <div class="form-group">
+                <label>Is the site located within 100 feet of a trail?</label><br/>
+                <select  name="nearTrail" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br/>  
+            </div>
 
-            <label>Erosion: Has dirt been washed from the trails in any way? Are there gullies rills or has dirt washed from site?</label><br/>
-            <select  name="erosion" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Erosion: Has dirt been washed from the trails in any way? Are there gullies rills or has dirt washed from site?</label><br/>
+                <select  name="erosion" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br/>
+            </div>
 
-            <h3>Structures</h3><br/>
-            <label>How many fire rings are there?</label><br/>
-            <select  name="fireRings" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="0">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="+4">+4</option>
-            </select><br/>
+            <div class="form-group">
+                <h3>Structures</h3><br/>
+                <label>How many fire rings are there?</label><br/>
+                <select  name="fireRings" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="+4">+4</option>
+                </select><br/>
+            </div>
 
-            <label>Improvements</label><br/>
-            <select  name="improvements" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Improvements</label><br/>
+                <select  name="improvements" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br/>
+            </div>
 
-            <label>Is the site contained in any way?</label><br/>
-            <select  name="contained" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="No">No</option>
-                <option value="Engineered">Engineered fencing/boulders</option>
-                <option value="Natural">Naturally contained by rocks/trees etc.</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Is the site contained in any way?</label><br/>
+                <select  name="contained" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="No">No</option>
+                    <option value="Engineered">Engineered fencing/boulders</option>
+                    <option value="Natural">Naturally contained by rocks/trees etc.</option>
+                </select><br/>
+            </div>
 
-            <label>Is there possible residential use?</label><br/>
-            <select  name="residential" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Is there possible residential use?</label><br/>
+                <select  name="residential" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select><br/>
+            </div>
 
-            <h3>Impacts</h3><br/>
-            <label>Is trash present?(if yes, how much?)</label><br/>
-            <select  name="trash" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="No">No</option>
-                <option value="<1G"> less than 1 Gallon</option>
-                <option value="1-3G">1 to 3 Gallons</option>
-                <option value="1-2TB">1-2 Large Trash Bags</option>
-                <option value=">2TB">more than 2 Trash Bags</option>
-                <option value="TruckLoad">truck load</option>
-            </select><br/>
+            <div class="form-group">
+                <h3>Impacts</h3><br/>
+                <label>Is trash present?(if yes, how much?)</label><br/>
+                <select  name="trash" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="No">No</option>
+                    <option value="<1G"> less than 1 Gallon</option>
+                    <option value="1-3G">1 to 3 Gallons</option>
+                    <option value="1-2TB">1-2 Large Trash Bags</option>
+                    <option value=">2TB">more than 2 Trash Bags</option>
+                    <option value="TruckLoad">truck load</option>
+                </select><br/>
+            </div>
 
-            <label>Is human waste or TP present within 100 yards?(if yes how much?)</label><br/>
-            <select  name="humanWaste" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="No">No</option>
-                <option value="1">1</option>
-                <option value="2-5">2-5</option>
-                <option value="5+">5+</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Is human waste or TP present within 100 yards?(if yes how much?)</label><br/>
+                <select  name="humanWaste" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="No">No</option>
+                    <option value="1">1</option>
+                    <option value="2-5">2-5</option>
+                    <option value="5+">5+</option>
+                </select><br/>
+            </div>
 
-            <label>Are non-system social trails, less than 3 foot wide, present?(if yes, feet in length)</label><br/>
-            <select  name="socialTrail" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="0-10">0-10</option>
-                <option value="10-25">10-25</option>
-                <option value="25-100">25-100</option>
-                <option value="100+">100+</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Are non-system social trails, less than 3 foot wide, present?(if yes, feet in length)</label><br/>
+                <select  name="socialTrail" class="select" onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="0-10">0-10</option>
+                    <option value="10-25">10-25</option>
+                    <option value="25-100">25-100</option>
+                    <option value="100+">100+</option>
+                </select><br/>
+            </div>
 
-            <label>Are non system social roads/ ATV/Motorcycle, more than 3 foot wide, present? (if yes, feet in length)</label><br/>
-            <select  name="socialRoad" onChange={eventHandler}>
-                <option value="choose">---select---</option>
-                <option value="0-10">0-10</option>
-                <option value="10-25">10-25</option>
-                <option value="25-100">25-100</option>
-                <option value="100+">100+</option>
-            </select><br/>
+            <div class="form-group">
+                <label>Are non system social roads/ ATV/Motorcycle, more than 3 foot wide, present? (if yes, feet in length)</label><br/>
+                <select  name="socialRoad" class="select"  onChange={eventHandler}>
+                    <option value="choose">---select---</option>
+                    <option value="0-10">0-10</option>
+                    <option value="10-25">10-25</option>
+                    <option value="25-100">25-100</option>
+                    <option value="100+">100+</option>
+                </select><br/>
+            </div>
+
 
             <h3>Campsite Adopter Data</h3><br/>
 
-            <label>Site Description</label><br/>
-            <input type='text' name='siteDescription' value={answers.siteDescription} onChange={eventHandler}></input><br/>
+            <div class="form-group">
+                <label>Site Description</label><br/>
+                <textarea type='text' name='siteDescription' class="form-control" style={{'width':'60%'}} rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
+            </div>
 
-            <h4>Are there issues requiring action?</h4><br/>
-                <label>Trash pickup</label>
-                <input type='checkbox' name="needTrashPickup" onChange={eventHandler}></input><br/>
-                <label>Signage fix</label>
-                <input type='checkbox' name="needSignageFix"onChange={eventHandler}></input><br/>
-                <label>Containment repair</label>
-                <input type='checkbox' name="needContainment repair"onChange={eventHandler}></input><br/>
-                <label>Fire ring removal</label>
-                <input type='checkbox' name="needFireRingRemoval"onChange={eventHandler}></input><br/><br/>
+            <div class='flex'>
+                <div class="form-group grouped">
+                    <h4>Are there issues requiring action?</h4><br/>
+                        <label>Trash pickup</label>
+                        <input type='checkbox' name="needTrashPickup" onChange={eventHandler}></input><br/>
+                        <label>Signage fix</label>
+                        <input type='checkbox' name="needSignageFix"onChange={eventHandler}></input><br/>
+                        <label>Containment repair</label>
+                        <input type='checkbox' name="needContainment repair"onChange={eventHandler}></input><br/>
+                        <label>Fire ring removal</label>
+                        <input type='checkbox' name="needFireRingRemoval"onChange={eventHandler}></input><br/><br/>
+                </div>
 
-            <h4>Actions taken</h4><br/>
-            <label>Trash pickup</label>
-                <input type='checkbox' name="doneTrashPickup" onChange={eventHandler}></input><br/>
-                <label>Signage fix</label>
-                <input type='checkbox' name="doneSignageFix"onChange={eventHandler}></input><br/>
-                <label>Containment repair</label>
-                <input type='checkbox' name="doneContainmentRepair"onChange={eventHandler}></input><br/>
-                <label>Fire ring removal</label>
-                <input type='checkbox' name="doneFireRingRemoval"onChange={eventHandler}></input><br/>
+                    
+                    <div class="form-group grouped">
+                        <h4>Actions taken</h4><br/>    
+                        <label>Trash pickup</label>
+                            <input type='checkbox' name="doneTrashPickup" onChange={eventHandler}></input><br/>
+                            <label>Signage fix</label>
+                            <input type='checkbox' name="doneSignageFix"onChange={eventHandler}></input><br/>
+                            <label>Containment repair</label>
+                            <input type='checkbox' name="doneContainmentRepair"onChange={eventHandler}></input><br/>
+                            <label>Fire ring removal</label>
+                            <input type='checkbox' name="doneFireRingRemoval"onChange={eventHandler}></input><br/>
+                    </div>
+            </div>
 
-            <label>Todays Date</label><br/>
-            <input name='date' type='date' onChange={eventHandler}></input><br/>
+            <div class='flex'>
+                <div class="form-group grouped">
+                    <label>Todays Date</label><br/>
+                    <input name='date' type='date' onChange={eventHandler}></input><br/>
 
-            <label>Hours spent</label><br/>
-            <input name='hours' type='number' placeholder='Hours spent'onChange={eventHandler}></input><br/>
-
-            <label>Notes</label><br/>
-            <input name='notes' placeholder='notes' onChange={eventHandler}></input><br/>
+                    <label style={{'paddingTop':'4%'}}>Hours spent</label><br/>
+                    <input name='hours' type='number' placeholder='Hours spent'onChange={eventHandler}></input><br/>
+            </div>
+                <div class="form-group grouped">
+                    <label>Notes</label><br/>
+                    <textarea name='notes' placeholder='notes' onChange={eventHandler}></textarea><br/>
+                </div>
+            </div>
 
             <Button color="success" disabled={buttonDisabled} color='warning'>Submit</Button>
 

@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+h3{
+  color:darkblue
+}
+label{
+  font-weight: 600;
+}
+
+.flex{
+  display:flex;
+  justify-content: flex-start;
+}
+.grouped{
+  width:40%;
+  padding-right: 10%;
+}
+.select{
+  width:40%
+}
+
+@media only screen and (max-width: 730px) {
+  .flex{
+    flex-direction: column;
+  }
+  .grouped{
+    width:90%;
+
+  }
+}
