@@ -132,7 +132,7 @@ function Survey() {
             <div class="flex "> 
                 <div class="form-group grouped p-3">     
                     <label>Location Name</label><br/>
-                    <input class='m-2' type='text' name='location' value={answers.location} onChange={eventHandler}></input><br/>
+                    <input class='ml-2' type='text' name='location' value={answers.location} onChange={eventHandler}></input><br/>
                 </div>
                 
                 <div class="form-group grouped p-3">
@@ -347,8 +347,9 @@ function Survey() {
                     <textarea name='notes' class='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
                 </div>
             </div>
-
-            <Button disabled={buttonDisabled} color='primary'>Submit</Button>
+            <div class='buttondiv'>
+            <Button disabled={buttonDisabled} className='button'color='primary'>Submit</Button>
+            </div>
             </div>
         </Form> 
     )

@@ -11,13 +11,13 @@ function App() {
   return (
 <Router>
     <Header/>
-  <Switch>
+  <Switch >
 
     <Route path="/survey">
       <Survey/>
     </Route >
     <Route path="/manager">
-      <Manager style={{Color:'red'}}/>
+      <Manager/>
     </Route>
   </Switch>
 </Router>

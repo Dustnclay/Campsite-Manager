@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  
 }
 
 code {
@@ -20,7 +21,8 @@ label{
 }
 
 .survey{
-  padding:5% 15% 0% 15%
+  align-items: center;
+  padding:5% 25% 0% 25%;
 }
 .manager{
   padding:5% 5% 0% 5%  
@@ -40,6 +42,9 @@ label{
 .longText{
   width:40%
 }
+.buttondiv{
+  text-align: center;
+}
 
 @media only screen and (max-width: 730px) {
   .flex{
@@ -53,10 +58,17 @@ label{
     width:70%
   }
   .survey{
-    padding:5% 5% 0% 5%
+    padding:5% 5% 5% 5%
   }
 
   .manager{
-    padding:5% 5% 0% 5%
+    padding:5% 5% 5% 5%
   }
+
+
+
+  .button{
+    width:80%
+  }
+
 }
