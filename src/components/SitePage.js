@@ -14,7 +14,7 @@ function SitePage(props) {
 
     return(
         <>  
-              {props.currentSite && <h3>Current site: {props.currentSite}</h3>}
+              {props.currentSite && <h1 class='centerText pb-5'>Current site: {props.currentSite}</h1>}
               <h3>Has the site been contained?</h3>
               <Chart form={props.allState.contained}/>
               <h3>Is there possible residential use?</h3>

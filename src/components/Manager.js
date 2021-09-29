@@ -15,16 +15,19 @@ function Manager(props) {
 
         return(
             <div class='manager'>
-                <span>Reviewed sites:</span>
-                {props.isFetching && <Spinner size="sm" color="secondary" />}
-             {props.siteArr.map(item => {
-                return(
-                   <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
-                    )
-                })} 
+                
                 <Route path={`/manager/${props.currentSite}`}>
                     <SitePage currentSite={props.currentSite}/>
                 </Route>
+
+                <span>Reviewed sites:</span>
+
+                {props.isFetching && <Spinner size="sm" color="secondary" />}
+                {props.siteArr.map(item => {
+                    return(
+                        <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
+                    )
+                })} 
             </div>
         )        
     }

@@ -5,6 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 function Chart(props){
 
     return(
+      <div class='pb-5'>
         <BarChart
           width={500}
           height={175}
@@ -21,6 +22,7 @@ function Chart(props){
           <Tooltip />
           <Bar dataKey="uv" fill="#82ca9d" />
         </BarChart>
+        </div>
   )
 }
 

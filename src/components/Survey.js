@@ -127,6 +127,7 @@ function Survey() {
     return(
         <Form onSubmit={submitButton} >
             <div class='survey'>
+            <div class='innerSurvey'>
             <h3>General Info</h3><br/>
 
             <div class="flex "> 
@@ -304,7 +305,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Site Description</label><br/>
-                <textarea type='text' class='m-3' name='siteDescription' class="form-control" style={{'width':'60%'}} rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
+                <textarea type='text' class='form-control m-3 textBox' name='siteDescription' rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
             </div>
 
             <div class='flex'>
@@ -347,8 +348,9 @@ function Survey() {
                     <textarea name='notes' class='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
                 </div>
             </div>
-            <div class='buttondiv'>
-            <Button disabled={buttonDisabled} className='button'color='primary'>Submit</Button>
+            <div class='centerText'>
+                <Button disabled={buttonDisabled} className='button'color='primary'><span class='btnText'>Submit</span></Button>
+            </div>
             </div>
             </div>
         </Form> 

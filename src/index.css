@@ -21,11 +21,17 @@ label{
 }
 
 .survey{
+
+  /* background-color: white; */
+}
+.innerSurvey{
   align-items: center;
-  padding:5% 25% 0% 25%;
+  margin:5% 15% 5% 15%;
+  padding:10%;
+  background-color: #e9ecef;
 }
 .manager{
-  padding:5% 5% 0% 5%  
+  padding:5% 5% 5% 5%  
 }
 
 .flex{
@@ -42,8 +48,18 @@ label{
 .longText{
   width:40%
 }
-.buttondiv{
+.centerText{
   text-align: center;
+}
+
+.button{
+  width:40%;
+}
+.btnText{
+  font-size: x-large;
+}
+.textBox{
+  width:auto
 }
 
 @media only screen and (max-width: 730px) {
@@ -53,7 +69,6 @@ label{
   .grouped{
     width:90%;
   }
-
   .select{
     width:70%
   }
@@ -65,10 +80,11 @@ label{
     padding:5% 5% 5% 5%
   }
 
-
-
   .button{
     width:80%
+  }
+  .textBox{
+    width:auto
   }
 
 }
