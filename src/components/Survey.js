@@ -137,14 +137,14 @@ function Survey() {
                 
                 <div class="form-group grouped p-3">
                     <label>Collector Name</label><br/>
-                    <input type='text' class='m-2' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
+                    <input type='text' class='ml-2' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
                 </div>   
             </div>
             <h3>Impact Rating</h3><br/>
             <div class="form-group p-3">
 
                 <label>Ground Disturbance Rating</label><br/>
-                <select name="groundDisturbance" onChange={eventHandler} class="select" >
+                <select name="groundDisturbance" onChange={eventHandler} class="select ml-2" >
                     <option value="choose">---select---</option>
                     <option value="Recovered">Site has Recovered</option>
                     <option value="Flat">vegetation is flattened but not permanently damaged</option>
@@ -155,7 +155,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Disturbed Area Rating in square footage</label><br/>
-                <select  name="disturbedArea" onChange={eventHandler} class="select" >
+                <select  name="disturbedArea" onChange={eventHandler} class="select ml-2" >
                     <option value="choose">---select---</option>
                     <option value="1-5">1-5 sqft</option>
                     <option value="5-10">5-10 sqft</option>
@@ -170,7 +170,7 @@ function Survey() {
                     been cut down, have scarring over more than a square foot on the tree and /or
                     have more that 3 sqft of roots exposed and/or have more than 5 branches broken.
                     Also count any Krumholtz trees of any size with visible damage to live trees/ limbs.</label>
-                <select  name="treesDamaged" class="select"  onChange={eventHandler}>
+                <select  name="treesDamaged" class="select ml-2"  onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0">0</option>
                     <option value="1-2">1-2</option>
@@ -184,7 +184,7 @@ function Survey() {
             <div class="form-group p-3">
 
                 <label>Is the site located within 100 feet of water?</label><br/>
-                <select name="nearWater" class="select" onChange={eventHandler}>
+                <select name="nearWater" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -193,7 +193,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Is the site located within 100 feet of a trail?</label><br/>
-                <select  name="nearTrail" class="select" onChange={eventHandler}>
+                <select  name="nearTrail" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -202,7 +202,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Erosion: Has dirt been washed from the trails in any way? Are there gullies rills or has dirt washed from site?</label><br/>
-                <select  name="erosion" class="select" onChange={eventHandler}>
+                <select  name="erosion" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -213,7 +213,7 @@ function Survey() {
             <div class="form-group p-3">
 
                 <label>How many fire rings are there?</label><br/>
-                <select  name="fireRings" class="select" onChange={eventHandler}>
+                <select  name="fireRings" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -225,7 +225,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Improvements</label><br/>
-                <select  name="improvements" class="select" onChange={eventHandler}>
+                <select  name="improvements" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -234,7 +234,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Is the site contained in any way?</label><br/>
-                <select  name="contained" class="select" onChange={eventHandler}>
+                <select  name="contained" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="No">No</option>
                     <option value="Engineered">Engineered fencing/boulders</option>
@@ -244,7 +244,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Is there possible residential use?</label><br/>
-                <select  name="residential" class="select" onChange={eventHandler}>
+                <select  name="residential" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -254,8 +254,8 @@ function Survey() {
             <h3>Impacts</h3><br/>
             <div class="form-group p-3">
 
-                <label>Is trash present?(if yes, how much?)</label><br/>
-                <select  name="trash" class="select" onChange={eventHandler}>
+                <label  >Is trash present?(if yes, how much?)</label><br/>
+                <select  name="trash" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="No">No</option>
                     <option value="<1G"> less than 1 Gallon</option>
@@ -268,7 +268,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Is human waste or TP present within 100 yards?(if yes how much?)</label><br/>
-                <select  name="humanWaste" class="select" onChange={eventHandler}>
+                <select  name="humanWaste" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="No">No</option>
                     <option value="1">1</option>
@@ -279,7 +279,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Are non-system social trails, less than 3 foot wide, present?(if yes, feet in length)</label><br/>
-                <select  name="socialTrail" class="select" onChange={eventHandler}>
+                <select  name="socialTrail" class="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0-10">0-10</option>
                     <option value="10-25">10-25</option>
@@ -290,7 +290,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Are non system social roads/ ATV/Motorcycle, more than 3 foot wide, present? (if yes, feet in length)</label><br/>
-                <select  name="socialRoad" class="select"  onChange={eventHandler}>
+                <select  name="socialRoad" class="select ml-2"  onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0-10">0-10</option>
                     <option value="10-25">10-25</option>
@@ -348,7 +348,7 @@ function Survey() {
                 </div>
             </div>
 
-            <Button color="success" disabled={buttonDisabled} color='info'>Submit</Button>
+            <Button disabled={buttonDisabled} color='primary'>Submit</Button>
             </div>
         </Form> 
     )

@@ -13,7 +13,7 @@ code {
 }
 
 h3{
-  color:darkblue
+  color:black
 }
 label{
   font-weight: 600;
@@ -21,6 +21,9 @@ label{
 
 .survey{
   padding:5% 15% 0% 15%
+}
+.manager{
+  padding:5% 5% 0% 5%  
 }
 
 .flex{
@@ -50,6 +53,10 @@ label{
     width:70%
   }
   .survey{
+    padding:5% 5% 0% 5%
+  }
+
+  .manager{
     padding:5% 5% 0% 5%
   }
 }

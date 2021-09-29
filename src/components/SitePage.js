@@ -15,49 +15,49 @@ function SitePage(props) {
     return(
         <>  
               {props.currentSite && <h3>Current site: {props.currentSite}</h3>}
-              <p>Has the site been contained?</p>
+              <h3>Has the site been contained?</h3>
               <Chart form={props.allState.contained}/>
-              <p>Is there possible residential use?</p>
+              <h3>Is there possible residential use?</h3>
               <Chart form={props.allState.residential}/>             
-              <p>Has erosion occured?</p>
+              <h3>Has erosion occured?</h3>
               <Chart form={props.allState.erosion}/> 
-              <p>In what state is the vegitation?</p>
+              <h3>In what state is the vegitation?</h3>
               <Chart form={props.allState.groundDisturbance}/> 
-              <p>Square footage of disturbed area?</p>
+              <h3>Square footage of disturbed area?</h3>
               <Chart form={props.allState.disturbedArea}/>
-              <p>How many trees are damaged?</p>
+              <h3>How many trees are damaged?</h3>
               <Chart form={props.allState.treesDamaged}/>  
-              <p>Within the site how many spots have human waste?</p>
+              <h3>Within the site how many spots have human waste?</h3>
               <Chart form={props.allState.humanWaste}/> 
-              <p>Have improvments been made to the site?</p>
+              <h3>Have improvments been made to the site?</h3>
               <Chart form={props.allState.improvements}/> 
-              <p>Is the site within 100 feet of a trail?</p>
+              <h3>Is the site within 100 feet of a trail?</h3>
               <Chart form={props.allState.nearTrail}/> 
-              <p>Is the site within 100 feet of water?</p>
+              <h3>Is the site within 100 feet of water?</h3>
               <Chart form={props.allState.nearWater}/> 
-              <p>If a social trail is present, how long in square foot is it?</p>
+              <h3>If a social trail is present, how long in square foot is it?</h3>
               <Chart form={props.allState.socialTrail}/> 
-              <p>If a social road is present, how long in square foot is it?</p>
+              <h3>If a social road is present, how long in square foot is it?</h3>
               <Chart form={props.allState.socialRoad}/> 
-              <p>How much trash is present, in gallons, trashbags, or a truckload?</p>
+              <h3>How much trash is present, in gallons, trashbags, or a truckload?</h3>
               <Chart  form={props.allState.trash}/> 
-              <p>How many fire rings are present?</p>
+              <h3>How many fire rings are present?</h3>
               <Chart  form={props.allState.fireRings}/> 
-              <p>Site has had containment repair done?</p>
+              <h3>Site has had containment repair done?</h3>
               <Chart  form={props.allState.doneContainmentRepair}/> 
-              <p>Site is in need of containment repair?</p>
+              <h3>Site is in need of containment repair?</h3>
               <Chart  form={props.allState.needContainmentRepair}/> 
-              <p>Have fire rings been removed?</p>
+              <h3>Have fire rings been removed?</h3>
               <Chart  form={props.allState.doneFireRingRemoval}/> 
-              <p>Does this site need fire rings removed?</p>
+              <h3>Does this site need fire rings removed?</h3>
               <Chart  form={props.allState.needFireRingRemoval}/> 
-              <p>Has the site's signage been fixed?</p>
+              <h3>Has the site's signage been fixed?</h3>
               <Chart  form={props.allState.doneSignageFix}/> 
-              <p>Does this site need signage fixed?</p>
+              <h3>Does this site need signage fixed?</h3>
               <Chart  form={props.allState.needSignageFix}/> 
-              <p>Has the trash been picked up?</p>
+              <h3>Has the trash been picked up?</h3>
               <Chart  form={props.allState.doneTrashPickup}/> 
-              <p>Does the site need trash pickup?</p>
+              <h3>Does the site need trash pickup?</h3>
               <Chart  form={props.allState.needTrashPickup}/>               
 
         </>

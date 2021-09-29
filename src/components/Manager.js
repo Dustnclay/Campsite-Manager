@@ -14,7 +14,7 @@ function Manager(props) {
     },siteArr)
 
         return(
-            <div>
+            <div class='manager'>
                 <span>Reviewed sites:</span>
                 {props.isFetching && <Spinner size="sm" color="secondary" />}
              {props.siteArr.map(item => {

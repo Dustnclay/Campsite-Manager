@@ -7,17 +7,17 @@ function Header () {
     return(
         <div>
             <Jumbotron >
-                    <h1  className="display-3">Campsite Manager</h1>
+                    <h1 className="display-3 d-flex justify-content-center">Campsite Manager</h1>
 
                 <Row>
-                    <Col sm={{ size: 'auto', offset: 0 }}>
-                        <Link to="/survey">
-                            Survey
+                    <Col >
+                        <Link to="/survey"className="d-flex justify-content-center border border-primary p-2 m-4 bg-light">
+                            Take A Survey
                         </Link>   
                     </Col>
-                    <Col sm={{ size: 'auto', offset: 1 }}>
-                        <Link to="/manager" >
-                            Manager
+                    <Col >
+                        <Link to="/manager"className="d-flex justify-content-center border border-primary p-2 m-4 bg-light" >
+                            View The Site Data
                         </Link>                        
                     </Col>
                 </Row>
