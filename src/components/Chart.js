@@ -5,15 +5,15 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 function Chart(props){
 
     return(
-      <div class='pb-5'>
+      <div>
         <BarChart
           width={500}
           height={175}
           data={props.form}
           margin={{
             top: 5,
-            right: 30,
-            left: 20,
+            right: 80,
+            left: -20,
             bottom: 5
           }}>
           <CartesianGrid strokeDasharray="3 3" />

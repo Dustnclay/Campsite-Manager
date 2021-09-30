@@ -9,7 +9,6 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
 
 code {
@@ -75,7 +74,6 @@ label{
   .innerSurvey{
     padding:2%;
     margin:2%;
-
   }
   .manager{
     padding:2% 2% 2% 2%
