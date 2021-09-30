@@ -1,3 +1,7 @@
+*{
+  font-size: large;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -12,28 +16,22 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
 h3{
   color:black
 }
 label{
   font-weight: 600;
 }
-
-.survey{
-
-  /* background-color: white; */
-}
 .innerSurvey{
   align-items: center;
   margin:5% 15% 5% 15%;
   padding:10%;
   background-color: #e9ecef;
+  border:1px solid #007bff;
 }
 .manager{
   padding:5% 5% 5% 5%  
 }
-
 .flex{
   display:flex;
   justify-content: flex-start;
@@ -51,9 +49,8 @@ label{
 .centerText{
   text-align: center;
 }
-
 .button{
-  width:40%;
+  width:50%;
 }
 .btnText{
   font-size: x-large;
@@ -63,6 +60,9 @@ label{
 }
 
 @media only screen and (max-width: 730px) {
+  *{
+    font-size: medium;
+  }
   .flex{
     flex-direction: column;
   }
@@ -72,19 +72,24 @@ label{
   .select{
     width:70%
   }
-  .survey{
-    padding:5% 5% 5% 5%
-  }
+  .innerSurvey{
+    padding:2%;
+    margin:2%;
 
+  }
   .manager{
-    padding:5% 5% 5% 5%
+    padding:2% 2% 2% 2%
   }
-
   .button{
     width:80%
   }
   .textBox{
     width:auto
   }
+}
 
+@media only screen and (min-width: 1600px) {
+  *{
+    font-size: x-large;
+  }
 }

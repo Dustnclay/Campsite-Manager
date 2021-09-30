@@ -305,7 +305,7 @@ function Survey() {
 
             <div class="form-group p-3">
                 <label>Site Description</label><br/>
-                <textarea type='text' class='form-control m-3 textBox' name='siteDescription' rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
+                <textarea type='text' class='form-control m-1 textBox' name='siteDescription' rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
             </div>
 
             <div class='flex'>
