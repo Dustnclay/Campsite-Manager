@@ -13,7 +13,7 @@ function Chart(props){
           margin={{
             top: 5,
             right: 80,
-            left: -20,
+            left: -10,
             bottom: 5
           }}>
           <CartesianGrid strokeDasharray="3 3" />
