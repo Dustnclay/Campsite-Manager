@@ -303,9 +303,11 @@ function Survey() {
 
             <h3>Campsite Adopter Data</h3><br/>
 
-            <div class="form-group p-3">
+            <div class="form-group p-3 d-flex flex-column">
                 <label>Site Description</label><br/>
-                <textarea type='text' class='form-control m-1 textBox' name='siteDescription' rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
+               
+                <textarea name='siteDescription' class=' m-1 textBox' rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
+
             </div>
 
             <div class='flex'>

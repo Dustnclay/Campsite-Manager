@@ -1,5 +1,6 @@
 *{
   font-size: large;
+  border-color: #007bff;
 }
 
 body {
@@ -21,12 +22,17 @@ h3{
 label{
   font-weight: 600;
 }
+.mainBgColor{
+  background-color: cadetblue;
+}
+
 .innerSurvey{
   align-items: center;
   margin:5% 15% 5% 15%;
   padding:10%;
   background-color: #e9ecef;
   border:1px solid #007bff;
+
 }
 .manager{
   padding:5% 5% 5% 5%  
@@ -49,6 +55,7 @@ label{
   text-align: center;
 }
 .button{
+  margin-top: 8%;
   width:50%;
 }
 .btnText{
@@ -82,7 +89,8 @@ label{
     width:80%
   }
   .textBox{
-    width:auto
+    padding:80px;
+    border-radius: 0px;
   }
 }
 

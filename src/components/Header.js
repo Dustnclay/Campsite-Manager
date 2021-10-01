@@ -5,9 +5,9 @@ import {Link} from 'react-router-dom'
 
 function Header () {
     return(
-        <div>
-            <Jumbotron >
-                    <h1 className="display-3 d-flex justify-content-center centerText">
+        <div >
+            <Jumbotron>
+                    <h1 className=" display-3 d-flex justify-content-center centerText ">
                         Campsite Manager</h1>
 
                 <Row>
@@ -23,9 +23,6 @@ function Header () {
                     </Col>
                 </Row>
             </Jumbotron>
-
-            
-
 
         </div>
     )

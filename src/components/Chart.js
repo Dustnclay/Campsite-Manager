@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 function Chart(props){
 
     return(
-      <div>
+      <div style={{'paddingBottom':'35px'}}>
         <BarChart
           width={500}
           height={175}
@@ -14,7 +14,7 @@ function Chart(props){
             top: 5,
             right: 80,
             left: -10,
-            bottom: 5
+            bottom:15
           }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
@@ -22,7 +22,7 @@ function Chart(props){
           <Tooltip />
           <Bar dataKey="uv" fill="#82ca9d" />
         </BarChart>
-        </div>
+        </div >
   )
 }
 
