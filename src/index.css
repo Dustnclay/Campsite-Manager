@@ -65,6 +65,11 @@ label{
   width:auto
 }
 
+#map {
+  height: 400px;
+  width: 100%;
+}
+
 @media only screen and (max-width: 730px) {
   *{
     font-size: medium;

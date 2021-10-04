@@ -3,6 +3,7 @@ import {Form, Button} from 'reactstrap'
 import * as yup from 'yup'
 import axios from 'axios'
 import {useHistory} from 'react-router-dom'
+import MapContainer from './GoogleMap'
 
 function Survey() {
 
@@ -124,6 +125,8 @@ function Survey() {
             [event.target.name]:event.target.type === "checkbox"? event.target.checked: event.target.value
         })
     }
+
+
     return(
         <Form onSubmit={submitButton} >
             <div class='survey'>
@@ -141,6 +144,7 @@ function Survey() {
                     <input type='text' class='ml-2' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
                 </div>   
             </div>
+
             <h3>Impact Rating</h3><br/>
             <div class="form-group p-3">
 
@@ -350,6 +354,12 @@ function Survey() {
                     <textarea name='notes' class='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
                 </div>
             </div>
+            <MapContainer/> 
+            <div style={{marginTop:'90%', display:'block'}}>
+               
+            </div>
+            
+
             <div class='centerText'>
                 <Button disabled={buttonDisabled} className='button'color='primary'><span class='btnText'>Submit</span></Button>
             </div>
