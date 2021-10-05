@@ -17,22 +17,29 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
         }
 
         onMarkerDragEnd = (coord) => {
+
             const { latLng } = coord;
             const lat = latLng.lat();
             const lng = latLng.lng();
-            console.log(lat, lng)
+
+            this.props.setAnswers({
+                ...this.props.answers, 
+                latlng:{lat,lng}
+            })
         };
     
         render() {
             return (
+
                 <Map
                     google={this.props.google}
                     zoom={3}
                     style={mapStyles}
                     initialCenter={{ lat: 37.0902, lng: -95.7129}}>
+
                     <Marker 
                         draggable={true}
-                        name={'Current location'} 
+                        name={'latlng'} 
                         onDragend={(t, map, coord) => this.onMarkerDragEnd(coord)}
                         />        
                 </Map>

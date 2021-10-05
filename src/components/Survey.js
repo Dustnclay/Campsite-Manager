@@ -21,8 +21,8 @@ function Survey() {
         .catch( error => {
             console.log('error', error.errors)
             setErrors({...errors,
-            [event.target.name]:error.errors[0]
-        })
+                [event.target.name]:error.errors[0]
+            })
         })
     }
 
@@ -57,7 +57,6 @@ function Survey() {
     })
 
     const [answers,setAnswers] =useState({
-        
         location:'',
         collector:'',
         survey:'NewSurvey',
@@ -87,7 +86,8 @@ function Survey() {
         date:'',
         hours:'',
         notes:'',
-        image:''
+        image:'',
+        latlng:0
     })
 
     const formSchema = yup.object().shape({
@@ -125,7 +125,6 @@ function Survey() {
             [event.target.name]:event.target.type === "checkbox"? event.target.checked: event.target.value
         })
     }
-
 
     return(
         <Form onSubmit={submitButton} >
@@ -356,7 +355,7 @@ function Survey() {
             </div>
             <h4 className='centerText'>Drag the pin to the campsite location</h4>
 
-            <MapContainer/> 
+            <MapContainer setAnswers={setAnswers} answers={answers}/> 
             <div style={{marginTop:'90%', display:'block'}}>
                
             </div>
