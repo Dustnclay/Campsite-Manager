@@ -11,14 +11,17 @@ function Manager(props) {
     const siteArr = props.siteArr
     useEffect(() => {
     props.getSite()
-    },siteArr)
 
+    },siteArr)
+    console.log(props)
         return(
             <div class='manager'>
                 
                 <Route path={`/manager/${props.currentSite}`}>
                     <SitePage currentSite={props.currentSite}/>
                 </Route>
+
+                
 
                 <span>Reviewed sites:</span>
 
@@ -36,7 +39,8 @@ function Manager(props) {
 const mapStateToProps = state => ({
     isFetching: state.isFetching,
     currentSite: state.currentSite,
-    siteArr: state.siteArr
+    siteArr: state.siteArr,
+    gMapArr:state.gMapArr
   })
   
   export default connect(

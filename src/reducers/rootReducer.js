@@ -241,6 +241,7 @@ const initialState = {
     err:'',
     isFetching:false,
     siteArr :[],
+    gMapArr:[],
     currentSite:0
 }
 
@@ -935,14 +936,32 @@ export const rootReducer = (state = initialState, action) => {
 
         case FETCH_SITE_SUCCESS:
             const savedData = action.payload.data
+
             const locationArr = []
             savedData.map(item => locationArr.push(item.location))
             const siteArr = [...new Set(locationArr)]
+            const tempArr = [...new Set(locationArr)]
+            const gMapArr = []
+            const mapArr = []
+            // console.log('tempArr',tempArr)
+            savedData.map(item => {
+              if(tempArr.includes(item.location)){
+                gMapArr.push(item)
+
+                var i = tempArr.indexOf(item.location)
+                delete tempArr[i]
+              } 
+            })
+            // const gMapArr = [...new Set(mapArr)]
+
+            console.log('gMapArr',gMapArr)
+
             return{
                 ...state,
                 err:'',
                 isFetching:false,
-                siteArr:siteArr
+                siteArr:siteArr,
+                gMapArr:gMapArr
             };   
 
         case FETCH_SITE_FAIL:
