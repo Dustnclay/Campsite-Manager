@@ -115,7 +115,6 @@ function Survey() {
         axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",answers)
         .then( response => console.log(response),history.push("/"))
         .catch( err => console.log(err))
-
     }
 
     const eventHandler = (event) => {

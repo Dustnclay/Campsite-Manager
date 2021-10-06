@@ -9,7 +9,15 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
     export class MapContainer extends Component {
         constructor(props) {
             super(props);
-        
+            // setTimeout(() => {
+            //     console.log(this.props.gMapArr)
+
+            // }, 1000);
+            // if(this.props.){
+
+            // }else{
+
+            // }
             this.state = {
                 stores: [{lat: 47.49855629475769, lng: -122.14184416996333}
                 ]
@@ -17,11 +25,9 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
         }
 
         onMarkerDragEnd = (coord) => {
-
             const { latLng } = coord;
             const lat = latLng.lat();
             const lng = latLng.lng();
-
             this.props.setAnswers({
                 ...this.props.answers, 
                 latlng:{lat,lng}
@@ -30,19 +36,33 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
     
         render() {
             return (
-
+                <>
                 <Map
                     google={this.props.google}
                     zoom={3}
                     style={mapStyles}
                     initialCenter={{ lat: 37.0902, lng: -95.7129}}>
 
-                    <Marker 
+
+                    {this.props.gMapArr?
+                        // this.props.gMapArr.map(location =>{
+                            // console.log(location.location);
+                            // console.log(JSON.parse(location.latlng));
+                            <Marker 
+                            title={'location.location'}
+                            position={{ lat: 31.0402, lng: -98.169}}
+                            />    
+                        // })
+                        :
+                        <Marker 
                         draggable={true}
                         name={'latlng'} 
+                        position={{ lat: 37.0902, lng: -95.7129}}
                         onDragend={(t, map, coord) => this.onMarkerDragEnd(coord)}
-                        />        
+                        /> }
                 </Map>
+
+                </>
             );
         }
     }

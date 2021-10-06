@@ -4,16 +4,14 @@ import {Spinner} from 'reactstrap'
 import SitePage from "./SitePage"
 import{connect} from 'react-redux'
 import {getSite,getNo} from '../actions'
-
+import MapContainer from "./GoogleMap"
 
 
 function Manager(props) {
     const siteArr = props.siteArr
     useEffect(() => {
     props.getSite()
-
     },siteArr)
-    console.log(props)
         return(
             <div class='manager'>
                 
@@ -21,7 +19,6 @@ function Manager(props) {
                     <SitePage currentSite={props.currentSite}/>
                 </Route>
 
-                
 
                 <span>Reviewed sites:</span>
 
@@ -30,7 +27,9 @@ function Manager(props) {
                     return(
                         <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
                     )
-                })} 
+                })}
+                <MapContainer gMapArr={props.gMapArr}/>
+
             </div>
         )        
     }

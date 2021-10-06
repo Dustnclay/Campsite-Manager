@@ -943,7 +943,6 @@ export const rootReducer = (state = initialState, action) => {
             const tempArr = [...new Set(locationArr)]
             const gMapArr = []
             const mapArr = []
-            // console.log('tempArr',tempArr)
             savedData.map(item => {
               if(tempArr.includes(item.location)){
                 gMapArr.push(item)
@@ -952,9 +951,6 @@ export const rootReducer = (state = initialState, action) => {
                 delete tempArr[i]
               } 
             })
-            // const gMapArr = [...new Set(mapArr)]
-
-            console.log('gMapArr',gMapArr)
 
             return{
                 ...state,
