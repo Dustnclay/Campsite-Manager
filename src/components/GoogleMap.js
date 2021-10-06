@@ -33,7 +33,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
                 latlng:{lat,lng}
             })
         };
-    
+
         render() {
             return (
                 <>
@@ -45,14 +45,15 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
 
                     {this.props.gMapArr?
-                        // this.props.gMapArr.map(location =>{
-                            // console.log(location.location);
-                            // console.log(JSON.parse(location.latlng));
-                            <Marker 
+                        this.props.gMapArr.map(location =>{
+                            console.log("location",location.location,JSON.parse(location.latlng));
+                            
+                            return <Marker 
+                            key={location.location}
                             title={'location.location'}
-                            position={{ lat: 31.0402, lng: -98.169}}
+                            position={JSON.parse(location.latlng)}
                             />    
-                        // })
+                        })
                         :
                         <Marker 
                         draggable={true}

@@ -11,7 +11,7 @@ function Manager(props) {
     const siteArr = props.siteArr
     useEffect(() => {
     props.getSite()
-    },siteArr)
+    },[])
         return(
             <div class='manager'>
                 
