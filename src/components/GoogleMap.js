@@ -58,7 +58,6 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
                         <Marker 
                         draggable={true}
                         name={'latlng'} 
-                        position={{ lat: 37.0902, lng: -95.7129}}
                         onDragend={(t, map, coord) => this.onMarkerDragEnd(coord)}
                         /> }
                 </Map>
