@@ -351,11 +351,10 @@ function Survey() {
                     <label >Notes</label><br/>
                     <textarea name='notes' class='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
                 </div>
-            </div>
+            </div >
             <h4 className='centerText'>Drag the pin to the campsite location</h4>
-
             <MapContainer setAnswers={setAnswers} answers={answers}/> 
-            <div style={{marginTop:'90%', display:'block'}}>
+            <div id='mapInsert'>
                
             </div>
             

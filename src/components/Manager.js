@@ -12,6 +12,7 @@ function Manager(props) {
     useEffect(() => {
     props.getSite()
     },[])
+
         return(
             <div class='manager'>
                 
@@ -19,19 +20,18 @@ function Manager(props) {
                     <SitePage currentSite={props.currentSite}/>
                 </Route>
 
-
                 <span>Reviewed sites:</span>
 
                 {props.isFetching && <Spinner size="sm" color="secondary" />}
                 {props.siteArr.map(item => {
+                    console.log(item,props.siteArr,props.currentSite)
                     return(
                         <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
                     )
                 })}
-                <MapContainer gMapArr={props.gMapArr}/>
-
+                {/* <MapContainer siteArr={props.siteArr} getNo={getNo} currentSite={props.currentSite} gMapArr={props.gMapArr}/> */}
             </div>
-        )        
+        )      
     }
 
 

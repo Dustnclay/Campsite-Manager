@@ -65,9 +65,15 @@ label{
   width:auto
 }
 
-#map {
-  height: 400px;
-  width: 100%;
+#mapInsert {
+  height: 75%;
+  width: 75%;
+  min-height:340px
+}
+.mapStyles {
+  width: 50%;
+  height: 50%;
+  max-height: 90px
 }
 
 @media only screen and (max-width: 730px) {
@@ -97,6 +103,7 @@ label{
     padding:80px;
     border-radius: 0px;
   }
+
 }
 
 @media only screen and (min-width: 1600px) {

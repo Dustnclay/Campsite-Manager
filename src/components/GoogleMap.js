@@ -1,28 +1,42 @@
 import React,{Component} from 'react'
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
+import {Link,BrowserRouter} from 'react-router-dom'
 
-    const mapStyles = {
-        width: '50%',
-        height: '50%',
-    };
+
 
     export class MapContainer extends Component {
         constructor(props) {
             super(props);
-            // setTimeout(() => {
-            //     console.log(this.props.gMapArr)
 
-            // }, 1000);
-            // if(this.props.){
-
-            // }else{
-
-            // }
             this.state = {
-                stores: [{lat: 47.49855629475769, lng: -122.14184416996333}
-                ]
+            showingInfoWindow: false,
+            activeMarker: {},
+            activeLocation:{},
+            selectedPlace: "",
+            tempPostition:{lat: 38.63828833248563,lng: -105.13916953125002}
+                // stores: [{lat: 47.49855629475769, lng: -122.14184416996333}
+                // ]
+        }}
+        
+          onMarkerClick = (props, marker, e) =>{
+
+            this.setState({
+              activeLocation:props.position,
+              selectedPlace: props.name,
+              activeMarker: marker,
+              showingInfoWindow: true
+            })};
+        
+          onMapClicked = (props) => {
+              console.log(this.state)
+
+            if (this.state.showingInfoWindow) {
+              this.setState({
+                showingInfoWindow: false,
+                activeMarker: null
+              })
             }
-        }
+          };
 
         onMarkerDragEnd = (coord) => {
             const { latLng } = coord;
@@ -36,25 +50,36 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 
         render() {
             return (
-                <>
+                <div className='mapStyles'
+                >
                 <Map
                     google={this.props.google}
+                    onClick={this.onMapClicked}
                     zoom={3}
-                    style={mapStyles}
+                    style={{height:'50%', width:'75%'}}
+                    resetBoundsOnResize = {true}
                     initialCenter={{ lat: 37.0902, lng: -95.7129}}>
-
+                    <InfoWindow
+                        position={this.state.activeLocation}
+                        visible={this.state.showingInfoWindow}>
+                            {/* <Link onClick={() => this.props.getNo(`${this.state.selectedPlace}`,this.props.siteArr,this.props.currentSite)} key={this.state.selectedPlace} to={ "/manager/"+ this.state.selectedPlace}> {this.state.selectedPlace} </Link>  */}
+                            <h6>{this.state.selectedPlace}</h6>
+                    </InfoWindow>
 
                     {this.props.gMapArr?
                         this.props.gMapArr.map(location =>{
-                            console.log("location",location.location,JSON.parse(location.latlng));
                             
                             return <Marker 
+                            onClick={this.onMarkerClick}
+                            name={location.location}
                             key={location.location}
-                            title={'location.location'}
                             position={JSON.parse(location.latlng)}
                             />    
-                        })
+
+                        })   
+                        
                         :
+                        
                         <Marker 
                         draggable={true}
                         name={'latlng'} 
@@ -62,7 +87,7 @@ import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
                         /> }
                 </Map>
 
-                </>
+                </div>
             );
         }
     }
