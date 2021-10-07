@@ -9,30 +9,30 @@ function Survey() {
 
     let history = useHistory()
 
-    const validate = (event) => {
-        yup.reach(formSchema,event.target.name)
-        .validate(event.target.type === 'checkbox' ? event.target.checked: event.target.value)
-        .then(valid => {
-            setErrors({
-                ...errors, 
-                [event.target.name]:''
-            })
-        })
-        .catch( error => {
-            console.log('error', error.errors)
-            setErrors({...errors,
-                [event.target.name]:error.errors[0]
-            })
-        })
-    }
+    // const validate = (event) => {
+    //     yup.reach(formSchema,event.target.name)
+    //     .validate(event.target.type === 'checkbox' ? event.target.checked: event.target.value)
+    //     .then(valid => {
+    //         setErrors({
+    //             ...errors, 
+    //             [event.target.name]:''
+    //         })
+    //     })
+    //     .catch( error => {
+    //         console.log('error', error.errors)
+    //         setErrors({...errors,
+    //             [event.target.name]:error.errors[0]
+    //         })
+    //     })
+    // }
 
-    useEffect(()=>{
-        formSchema.isValid(answers).then(valid=>{
-            setButtonDisabled(!valid);
-        })
-    })
+    // useEffect(()=>{
+    //     formSchema.isValid(answers).then(valid=>{
+    //         setButtonDisabled(!valid);
+    //     })
+    // })
 
-    const [buttonDisabled,setButtonDisabled] = useState(false)
+    // const [buttonDisabled,setButtonDisabled] = useState(false)
 
     const [errors,setErrors] =useState({
         location:'',
@@ -92,25 +92,26 @@ function Survey() {
 
     const formSchema = yup.object().shape({
         location:yup.string().required("location required"),
-        collector:yup.string().required("name required"),
-        groundDisturbance:yup.mixed().oneOf(["Recovered","Flat","Worn","Bare"], 'disturbance question required'),
-        disturbedArea:yup.mixed().oneOf(["1-5","5-10","10-25","25-50","+50"], "disturbed area question required"),
-        treesDamaged:yup.mixed().oneOf(["0","1-2","3-5","5-10","10+"],'input required'),
-        nearWater:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
-        nearTrail:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
-        erosion:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
-        fireRings:yup.mixed().oneOf(["0","1","2","3","+4"]),
-        improvements:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
-        contained:yup.mixed().oneOf(["No","Natural","Engineered"],"You must choose to proceed"),
-        residential:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
-        trash:yup.mixed().oneOf(["No","<1G","1-3G","1-2TB",">2TB","TruckLoad"],"You must choose to proceed"),
-        humanWaste:yup.mixed().oneOf(["No","1","2-5","5+"],'input required'),
-        socialTrail:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
-        socialRoad:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
-        date:yup.date().required('date required')
+        // collector:yup.string().required("name required"),
+        // groundDisturbance:yup.mixed().oneOf(["Recovered","Flat","Worn","Bare"], 'disturbance question required'),
+        // disturbedArea:yup.mixed().oneOf(["1-5","5-10","10-25","25-50","+50"], "disturbed area question required"),
+        // treesDamaged:yup.mixed().oneOf(["0","1-2","3-5","5-10","10+"],'input required'),
+        // nearWater:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
+        // nearTrail:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
+        // erosion:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
+        // fireRings:yup.mixed().oneOf(["0","1","2","3","+4"]),
+        // improvements:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
+        // contained:yup.mixed().oneOf(["No","Natural","Engineered"],"You must choose to proceed"),
+        // residential:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
+        // trash:yup.mixed().oneOf(["No","<1G","1-3G","1-2TB",">2TB","TruckLoad"],"You must choose to proceed"),
+        // humanWaste:yup.mixed().oneOf(["No","1","2-5","5+"],'input required'),
+        // socialTrail:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
+        // socialRoad:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
+        // date:yup.date().required('date required')
     })
 
     const submitButton = (event)=>{
+        console.log("clicked submit", event)
         event.preventDefault()
         axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",answers)
         .then( response => console.log(response),history.push("/"))
@@ -131,7 +132,7 @@ function Survey() {
             <div class='innerSurvey'>
             <h3>General Info</h3><br/>
 
-            <div class="flex "> 
+            <div class="flex"> 
                 <div class="form-group grouped p-3">     
                     <label>Location Name</label><br/>
                     <input class='ml-2' type='text' name='location' value={answers.location} onChange={eventHandler}></input><br/>
@@ -183,7 +184,7 @@ function Survey() {
                 </select><br/>
             </div>
 
-        <h3>Resource Impacts</h3><br/>
+            <h3>Resource Impacts</h3><br/>
             <div class="form-group p-3">
 
                 <label>Is the site located within 100 feet of water?</label><br/>
@@ -360,8 +361,8 @@ function Survey() {
             
 
             <div class='centerText'>
-                <Button disabled={buttonDisabled} className='button'color='primary'><span class='btnText'>Submit</span></Button>
-            </div>
+                <button onClick={console.log('clicked')}disabled={false} className='button'color='primary'><span class='btnText'>Submit</span></button>
+            </div> 
             </div>
             </div>
         </Form> 

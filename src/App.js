@@ -10,7 +10,7 @@ import {BrowserRouter as Router, Route,Switch} from 'react-router-dom'
 function App() {
   return (
     <>
-{/* <Router> */}
+<Router>
     <Header/>
   <Switch >
 
@@ -21,7 +21,7 @@ function App() {
       <Manager/>
     </Route>
   </Switch>
- {/* </Router> */}
+ </Router>
  </>
   );
 }
