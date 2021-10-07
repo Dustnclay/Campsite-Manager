@@ -56,7 +56,7 @@ import {Link,BrowserRouter} from 'react-router-dom'
                     google={this.props.google}
                     onClick={this.onMapClicked}
                     zoom={3}
-                    style={{height:'50%', width:'75%'}}
+                    style={{height:'50%', width: '50%' }}
                     resetBoundsOnResize = {true}
                     initialCenter={{ lat: 37.0902, lng: -95.7129}}>
                     <InfoWindow

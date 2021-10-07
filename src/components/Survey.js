@@ -183,7 +183,7 @@ function Survey() {
                 </select><br/>
             </div>
 
-        <h3>Resource Impacts</h3><br/>
+            <h3>Resource Impacts</h3><br/>
             <div class="form-group p-3">
 
                 <label>Is the site located within 100 feet of water?</label><br/>

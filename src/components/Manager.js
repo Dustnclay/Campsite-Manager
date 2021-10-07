@@ -29,7 +29,7 @@ function Manager(props) {
                         <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
                     )
                 })}
-                {/* <MapContainer siteArr={props.siteArr} getNo={getNo} currentSite={props.currentSite} gMapArr={props.gMapArr}/> */}
+                <MapContainer siteArr={props.siteArr} getNo={getNo} currentSite={props.currentSite} gMapArr={props.gMapArr}/>
             </div>
         )      
     }
