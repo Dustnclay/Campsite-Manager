@@ -353,11 +353,14 @@ function Survey() {
                     <textarea name='notes' class='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
                 </div>
             </div >
+            {/* <div class=' mapStyles'> */}
+
             <h4 className='centerText'>Drag the pin to your campsite location</h4>
-            <MapContainer setAnswers={setAnswers} answers={answers}/> 
+            <MapContainer style={{marginBottom:'10%'}}setAnswers={setAnswers} answers={answers}/> 
             <div id='mapInsert'>
-               
-            </div>
+            </div> 
+  
+            {/* </div>  */}
             
 
             <div class='centerText'>
