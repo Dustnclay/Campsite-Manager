@@ -5,7 +5,7 @@ import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip} from 'recharts';
 function Chart(props){
 
     return(
-      <div style={{'paddingBottom':'35px'}}>
+      <div class='pb-4'>
         <BarChart
           width={500}
           height={175}

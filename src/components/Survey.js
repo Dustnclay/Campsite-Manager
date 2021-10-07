@@ -9,30 +9,30 @@ function Survey() {
 
     let history = useHistory()
 
-    // const validate = (event) => {
-    //     yup.reach(formSchema,event.target.name)
-    //     .validate(event.target.type === 'checkbox' ? event.target.checked: event.target.value)
-    //     .then(valid => {
-    //         setErrors({
-    //             ...errors, 
-    //             [event.target.name]:''
-    //         })
-    //     })
-    //     .catch( error => {
-    //         console.log('error', error.errors)
-    //         setErrors({...errors,
-    //             [event.target.name]:error.errors[0]
-    //         })
-    //     })
-    // }
+    const validate = (event) => {
+        yup.reach(formSchema,event.target.name)
+        .validate(event.target.type === 'checkbox' ? event.target.checked: event.target.value)
+        .then(valid => {
+            setErrors({
+                ...errors, 
+                [event.target.name]:''
+            })
+        })
+        .catch( error => {
+            console.log('error', error.errors)
+            setErrors({...errors,
+                [event.target.name]:error.errors[0]
+            })
+        })
+    }
 
-    // useEffect(()=>{
-    //     formSchema.isValid(answers).then(valid=>{
-    //         setButtonDisabled(!valid);
-    //     })
-    // })
+    useEffect(()=>{
+        formSchema.isValid(answers).then(valid=>{
+            setButtonDisabled(!valid);
+        })
+    })
 
-    // const [buttonDisabled,setButtonDisabled] = useState(false)
+    const [buttonDisabled,setButtonDisabled] = useState(false)
 
     const [errors,setErrors] =useState({
         location:'',
@@ -92,22 +92,22 @@ function Survey() {
 
     const formSchema = yup.object().shape({
         location:yup.string().required("location required"),
-        // collector:yup.string().required("name required"),
-        // groundDisturbance:yup.mixed().oneOf(["Recovered","Flat","Worn","Bare"], 'disturbance question required'),
-        // disturbedArea:yup.mixed().oneOf(["1-5","5-10","10-25","25-50","+50"], "disturbed area question required"),
-        // treesDamaged:yup.mixed().oneOf(["0","1-2","3-5","5-10","10+"],'input required'),
-        // nearWater:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
-        // nearTrail:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
-        // erosion:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
-        // fireRings:yup.mixed().oneOf(["0","1","2","3","+4"]),
-        // improvements:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
-        // contained:yup.mixed().oneOf(["No","Natural","Engineered"],"You must choose to proceed"),
-        // residential:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
-        // trash:yup.mixed().oneOf(["No","<1G","1-3G","1-2TB",">2TB","TruckLoad"],"You must choose to proceed"),
-        // humanWaste:yup.mixed().oneOf(["No","1","2-5","5+"],'input required'),
-        // socialTrail:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
-        // socialRoad:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
-        // date:yup.date().required('date required')
+        collector:yup.string().required("name required"),
+        groundDisturbance:yup.mixed().oneOf(["Recovered","Flat","Worn","Bare"], 'disturbance question required'),
+        disturbedArea:yup.mixed().oneOf(["1-5","5-10","10-25","25-50","+50"], "disturbed area question required"),
+        treesDamaged:yup.mixed().oneOf(["0","1-2","3-5","5-10","10+"],'input required'),
+        nearWater:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
+        nearTrail:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
+        erosion:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
+        fireRings:yup.mixed().oneOf(["0","1","2","3","+4"]),
+        improvements:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),        
+        contained:yup.mixed().oneOf(["No","Natural","Engineered"],"You must choose to proceed"),
+        residential:yup.mixed().oneOf(["Yes","No"],"You must choose to proceed"),
+        trash:yup.mixed().oneOf(["No","<1G","1-3G","1-2TB",">2TB","TruckLoad"],"You must choose to proceed"),
+        humanWaste:yup.mixed().oneOf(["No","1","2-5","5+"],'input required'),
+        socialTrail:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
+        socialRoad:yup.mixed().oneOf(["0-10","10-25","25-100","100+"],'input required'),
+        date:yup.date().required('date required')
     })
 
     const submitButton = (event)=>{
@@ -345,7 +345,7 @@ function Survey() {
                     <label>Todays Date</label><br/>
                     <input name='date' class='m-2' type='date' onChange={eventHandler}></input><br/>
 
-                    <label style={{'paddingTop':'4%'}}>Hours spent</label><br/>
+                    <label class='pt-2'>Hours spent</label><br/>
                     <input name='hours' class='m-2' type='number' placeholder='Hours spent'onChange={eventHandler}></input><br/>
             </div>
                 <div class="form-group grouped">
@@ -353,18 +353,13 @@ function Survey() {
                     <textarea name='notes' class='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
                 </div>
             </div >
-            {/* <div class=' mapStyles'> */}
 
             <h4 className='centerText'>Drag the pin to your campsite location</h4>
-            <MapContainer style={{marginBottom:'10%'}}setAnswers={setAnswers} answers={answers}/> 
-            <div id='mapInsert'>
-            </div> 
-  
-            {/* </div>  */}
-            
+            <MapContainer setAnswers={setAnswers} answers={answers}/> 
+            <div id='mapInsert'></div>             
 
             <div class='centerText'>
-                <Button onClick={console.log('clicked')}disabled={false} className='button'color='primary'><span class='btnText'>Submit</span></Button>
+                <Button disabled={buttonDisabled} className='button'color='primary'><span class='btnText'>Submit</span></Button>
             </div> 
             </div>
             </div>

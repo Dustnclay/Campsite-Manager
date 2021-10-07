@@ -1,6 +1,5 @@
-import React,{Component} from 'react'
+import React from 'react'
 import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
-import {Link,BrowserRouter} from 'react-router-dom'
 
 
 
@@ -14,8 +13,6 @@ import {Link,BrowserRouter} from 'react-router-dom'
             activeLocation:{},
             selectedPlace: "",
             tempPostition:{lat: 38.63828833248563,lng: -105.13916953125002}
-                // stores: [{lat: 47.49855629475769, lng: -122.14184416996333}
-                // ]
         }}
         
           onMarkerClick = (props, marker, e) =>{
@@ -58,13 +55,11 @@ import {Link,BrowserRouter} from 'react-router-dom'
                     zoom={3}
                     height={'50%'}
                     containerStyle={{height:'50%', width: '50%' }}
-                    // style={{ height:'50%', width: '50%' }}
                     resetBoundsOnResize = {true}
                     initialCenter={{ lat: 37.0902, lng: -95.7129}}>
                     <InfoWindow
                         position={this.state.activeLocation}
                         visible={this.state.showingInfoWindow}>
-                            {/* <Link onClick={() => this.props.getNo(`${this.state.selectedPlace}`,this.props.siteArr,this.props.currentSite)} key={this.state.selectedPlace} to={ "/manager/"+ this.state.selectedPlace}> {this.state.selectedPlace} </Link>  */}
                             <h6>{this.state.selectedPlace}</h6>
                     </InfoWindow>
 
