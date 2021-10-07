@@ -361,7 +361,7 @@ function Survey() {
             
 
             <div class='centerText'>
-                <button onClick={console.log('clicked')}disabled={false} className='button'color='primary'><span class='btnText'>Submit</span></button>
+                <Button onClick={console.log('clicked')}disabled={false} className='button'color='primary'><span class='btnText'>Submit</span></Button>
             </div> 
             </div>
             </div>
