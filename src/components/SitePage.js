@@ -1,5 +1,5 @@
 
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import Chart from "./Chart"
 import {getForms} from '../actions'
 import{connect} from 'react-redux'
@@ -11,7 +11,9 @@ function SitePage(props) {
   useEffect(() => {
     props.getForms(props.currentSite)
   },[props.currentSite])
+  console.log('currSite in sitepage',props.currentSite)
 
+  const [currSiteMap,setCurrSiteMap] = useState()
     return(
         <>  
               {props.currentSite && <h1 class='centerText pb-5'>Current site: {props.currentSite}</h1>}
@@ -116,7 +118,8 @@ const mapStateToProps = state => ({
 
   currentSite: state.currentSite,
   siteArr: state.siteArr,
-  allState:state
+  allState:state,
+  gMapArr:state.gMapArr
 })
 
 export default connect(

@@ -986,10 +986,11 @@ export const rootReducer = (state = initialState, action) => {
             };
 
         case CLEAR_SITE_DATA:
+          const gMap = state.gMapArr
           state = initialState
           return{
               state,
-              
+              gMapArr:gMap,
               siteArr: action.payload,
               err:'',
               isFetching:false

@@ -35,7 +35,6 @@ export const getForms = (siteNo) => dispatch => {
     dispatch({type:FETCH_FORMS});
     axios.get(`https://campsite-manager.herokuapp.com/form/${siteNo}`)
         .then(resp=>{
-            console.log('resp-axioscall',resp)
             dispatch({ type: FETCH_FORMS_SUCCESS, payload:resp})
         })
         .catch(err => {

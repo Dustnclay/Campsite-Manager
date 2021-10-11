@@ -12,7 +12,7 @@ function Manager(props) {
     useEffect(() => {
     props.getSite()
     },[])
-
+    console.log('props in manager',props)
         return(
             <div class='manager'>
                 
@@ -24,9 +24,8 @@ function Manager(props) {
 
                 {props.isFetching && <Spinner size="sm" color="secondary" />}
                 {props.siteArr.map(item => {
-                    console.log(item,props.siteArr,props.currentSite)
                     return(
-                        <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
+                        <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} | </Link> 
                     )
                 })}
                 <MapContainer siteArr={props.siteArr} getNo={getNo} currentSite={props.currentSite} gMapArr={props.gMapArr}/>
