@@ -25,7 +25,6 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
             })};
         
           onMapClicked = (props) => {
-              console.log(this.state)
 
             if (this.state.showingInfoWindow) {
               this.setState({
@@ -44,8 +43,8 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
                 latlng:{lat,lng}
             })
         };
-
         render() {
+
             return (
                 <div className='mapStyles'
                 >
@@ -63,9 +62,10 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
                             <h6>{this.state.selectedPlace}</h6>
                     </InfoWindow>
 
+
                     {this.props.gMapArr?
                         this.props.gMapArr.map(location =>{
-                            
+
                             return <Marker 
                             onClick={this.onMarkerClick}
                             name={location.location}

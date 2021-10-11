@@ -8,13 +8,11 @@ import MapContainer from "./GoogleMap"
 
 
 function Manager(props) {
-    const siteArr = props.siteArr
     useEffect(() => {
     props.getSite()
     },[])
-    console.log('props in manager',props)
         return(
-            <div class='manager'>
+            <div className='manager'>
                 
                 <Route path={`/manager/${props.currentSite}`}>
                     <SitePage currentSite={props.currentSite}/>
@@ -23,9 +21,12 @@ function Manager(props) {
                 <span>Reviewed sites:</span>
 
                 {props.isFetching && <Spinner size="sm" color="secondary" />}
-                {props.siteArr.map(item => {
+                {props.siteArr.map(item=> {
                     return(
-                        <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} | </Link> 
+                        <span key={item}>
+                            <Link onClick={() => props.getNo(`${item}`,props.siteArr,props.currentSite)} key={item} to={ "/manager/"+ item}> {item} </Link> 
+                            <span>|</span>
+                        </span>
                     )
                 })}
                 <MapContainer siteArr={props.siteArr} getNo={getNo} currentSite={props.currentSite} gMapArr={props.gMapArr}/>

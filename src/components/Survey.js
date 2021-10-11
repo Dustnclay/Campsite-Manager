@@ -9,22 +9,22 @@ function Survey() {
 
     let history = useHistory()
 
-    const validate = (event) => {
-        yup.reach(formSchema,event.target.name)
-        .validate(event.target.type === 'checkbox' ? event.target.checked: event.target.value)
-        .then(valid => {
-            setErrors({
-                ...errors, 
-                [event.target.name]:''
-            })
-        })
-        .catch( error => {
-            console.log('error', error.errors)
-            setErrors({...errors,
-                [event.target.name]:error.errors[0]
-            })
-        })
-    }
+    // const validate = (event) => {
+    //     yup.reach(formSchema,event.target.name)
+    //     .validate(event.target.type === 'checkbox' ? event.target.checked: event.target.value)
+    //     .then(valid => {
+    //         setErrors({
+    //             ...errors, 
+    //             [event.target.name]:''
+    //         })
+    //     })
+    //     .catch( error => {
+    //         console.log('error', error.errors)
+    //         setErrors({...errors,
+    //             [event.target.name]:error.errors[0]
+    //         })
+    //     })
+    // }
 
     useEffect(()=>{
         formSchema.isValid(answers).then(valid=>{
@@ -34,27 +34,27 @@ function Survey() {
 
     const [buttonDisabled,setButtonDisabled] = useState(false)
 
-    const [errors,setErrors] =useState({
-        location:'',
-        collector:'',
-        survey:'',
-        groundDisturbance:'',
-        disturbedArea:'',
-        treesDamaged:'',
-        nearWater:'',
-        nearTrail:'',        
-        erosion:'',
-        fireRings:'',
-        improvements:'',        
-        contained:'',
-        residential:'',
-        trash:'',
-        humanWaste:'',
-        socialTrail:'',
-        socialRoad:'',
-        siteDescription:'',
-        date:''
-    })
+    // const [errors,setErrors] =useState({
+    //     location:'',
+    //     collector:'',
+    //     survey:'',
+    //     groundDisturbance:'',
+    //     disturbedArea:'',
+    //     treesDamaged:'',
+    //     nearWater:'',
+    //     nearTrail:'',        
+    //     erosion:'',
+    //     fireRings:'',
+    //     improvements:'',        
+    //     contained:'',
+    //     residential:'',
+    //     trash:'',
+    //     humanWaste:'',
+    //     socialTrail:'',
+    //     socialRoad:'',
+    //     siteDescription:'',
+    //     date:''
+    // })
 
     const [answers,setAnswers] =useState({
         location:'',
@@ -111,7 +111,6 @@ function Survey() {
     })
 
     const submitButton = (event)=>{
-        console.log("clicked submit", event)
         event.preventDefault()
         axios.post( process.env.DB_URL || "https://campsite-manager.herokuapp.com/form",answers)
         .then( response => console.log(response),history.push("/"))
@@ -128,27 +127,27 @@ function Survey() {
 
     return(
         <Form onSubmit={submitButton} >
-            <div class='survey'>
-            <div class='innerSurvey'>
+            <div className='survey'>
+            <div className='innerSurvey'>
             <h3>General Info</h3><br/>
 
-            <div class="flex"> 
-                <div class="form-group grouped p-3">     
+            <div className="flex"> 
+                <div className="form-group grouped p-3">     
                     <label>Location Name</label><br/>
-                    <input class='ml-2' type='text' name='location' value={answers.location} onChange={eventHandler}></input><br/>
+                    <input className='ml-2' type='text' name='location' value={answers.location} onChange={eventHandler}></input><br/>
                 </div>
                 
-                <div class="form-group grouped p-3">
+                <div className="form-group grouped p-3">
                     <label>Collector Name</label><br/>
-                    <input type='text' class='ml-2' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
+                    <input type='text' className='ml-2' name='collector' value={answers.collector} onChange={eventHandler}></input><br/>
                 </div>   
             </div>
 
             <h3>Impact Rating</h3><br/>
-            <div class="form-group p-3">
+            <div className="form-group p-3">
 
                 <label>Ground Disturbance Rating</label><br/>
-                <select name="groundDisturbance" onChange={eventHandler} class="select ml-2" >
+                <select name="groundDisturbance" onChange={eventHandler} className="select ml-2" >
                     <option value="choose">---select---</option>
                     <option value="Recovered">Site has Recovered</option>
                     <option value="Flat">vegetation is flattened but not permanently damaged</option>
@@ -157,9 +156,9 @@ function Survey() {
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Disturbed Area Rating in square footage</label><br/>
-                <select  name="disturbedArea" onChange={eventHandler} class="select ml-2" >
+                <select  name="disturbedArea" onChange={eventHandler} className="select ml-2" >
                     <option value="choose">---select---</option>
                     <option value="1-5">1-5 sqft</option>
                     <option value="5-10">5-10 sqft</option>
@@ -169,12 +168,12 @@ function Survey() {
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label >Trees Damaged; count only trees that: Were live trees larger than 4 inches that have 
                     been cut down, have scarring over more than a square foot on the tree and /or
                     have more that 3 sqft of roots exposed and/or have more than 5 branches broken.
                     Also count any Krumholtz trees of any size with visible damage to live trees/ limbs.</label>
-                <select  name="treesDamaged" class="select ml-2"  onChange={eventHandler}>
+                <select  name="treesDamaged" className="select ml-2"  onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0">0</option>
                     <option value="1-2">1-2</option>
@@ -185,28 +184,28 @@ function Survey() {
             </div>
 
             <h3>Resource Impacts</h3><br/>
-            <div class="form-group p-3">
+            <div className="form-group p-3">
 
                 <label>Is the site located within 100 feet of water?</label><br/>
-                <select name="nearWater" class="select ml-2" onChange={eventHandler}>
+                <select name="nearWater" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Is the site located within 100 feet of a trail?</label><br/>
-                <select  name="nearTrail" class="select ml-2" onChange={eventHandler}>
+                <select  name="nearTrail" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select><br/>  
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Erosion: Has dirt been washed from the trails in any way? Are there gullies rills or has dirt washed from site?</label><br/>
-                <select  name="erosion" class="select ml-2" onChange={eventHandler}>
+                <select  name="erosion" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -214,10 +213,10 @@ function Survey() {
             </div>
 
             <h3>Structures</h3><br/>
-            <div class="form-group p-3">
+            <div className="form-group p-3">
 
                 <label>How many fire rings are there?</label><br/>
-                <select  name="fireRings" class="select ml-2" onChange={eventHandler}>
+                <select  name="fireRings" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
@@ -227,18 +226,18 @@ function Survey() {
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Improvements</label><br/>
-                <select  name="improvements" class="select ml-2" onChange={eventHandler}>
+                <select  name="improvements" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Is the site contained in any way?</label><br/>
-                <select  name="contained" class="select ml-2" onChange={eventHandler}>
+                <select  name="contained" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="No">No</option>
                     <option value="Engineered">Engineered fencing/boulders</option>
@@ -246,9 +245,9 @@ function Survey() {
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Is there possible residential use?</label><br/>
-                <select  name="residential" class="select ml-2" onChange={eventHandler}>
+                <select  name="residential" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="Yes">Yes</option>
                     <option value="No">No</option>
@@ -256,10 +255,10 @@ function Survey() {
             </div>
 
             <h3>Impacts</h3><br/>
-            <div class="form-group p-3">
+            <div className="form-group p-3">
 
                 <label  >Is trash present?(if yes, how much?)</label><br/>
-                <select  name="trash" class="select ml-2" onChange={eventHandler}>
+                <select  name="trash" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="No">No</option>
                     <option value="<1G"> less than 1 Gallon</option>
@@ -270,9 +269,9 @@ function Survey() {
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Is human waste or TP present within 100 yards?(if yes how much?)</label><br/>
-                <select  name="humanWaste" class="select ml-2" onChange={eventHandler}>
+                <select  name="humanWaste" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="No">No</option>
                     <option value="1">1</option>
@@ -281,9 +280,9 @@ function Survey() {
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Are non-system social trails, less than 3 foot wide, present?(if yes, feet in length)</label><br/>
-                <select  name="socialTrail" class="select ml-2" onChange={eventHandler}>
+                <select  name="socialTrail" className="select ml-2" onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0-10">0-10</option>
                     <option value="10-25">10-25</option>
@@ -292,9 +291,9 @@ function Survey() {
                 </select><br/>
             </div>
 
-            <div class="form-group p-3">
+            <div className="form-group p-3">
                 <label>Are non system social roads/ ATV/Motorcycle, more than 3 foot wide, present? (if yes, feet in length)</label><br/>
-                <select  name="socialRoad" class="select ml-2"  onChange={eventHandler}>
+                <select  name="socialRoad" className="select ml-2"  onChange={eventHandler}>
                     <option value="choose">---select---</option>
                     <option value="0-10">0-10</option>
                     <option value="10-25">10-25</option>
@@ -306,51 +305,51 @@ function Survey() {
 
             <h3>Campsite Adopter Data</h3><br/>
 
-            <div class="form-group p-3 d-flex flex-column">
+            <div className="form-group p-3 d-flex flex-column">
                 <label>Site Description</label><br/>
                
-                <textarea name='siteDescription' class=' m-1 textBox' rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
+                <textarea name='siteDescription' className=' m-1 textBox' rows= '3' value={answers.siteDescription} onChange={eventHandler}></textarea><br/>
 
             </div>
 
-            <div class='flex'>
-                <div class="form-group grouped">
+            <div className='flex'>
+                <div className="form-group grouped">
                     <h4>Are there issues requiring action?</h4><br/>
-                        <label class='pl-2 pr-2'>Trash pickup</label>
+                        <label className='pl-2 pr-2'>Trash pickup</label>
                         <input type='checkbox' name="needTrashPickup" onChange={eventHandler}></input><br/>
-                        <label class='pl-2 pr-2'>Signage fix</label>
+                        <label className='pl-2 pr-2'>Signage fix</label>
                         <input type='checkbox' name="needSignageFix"onChange={eventHandler}></input><br/>
-                        <label class='pl-2 pr-2'>Containment repair</label>
+                        <label className='pl-2 pr-2'>Containment repair</label>
                         <input type='checkbox' name="needContainment repair"onChange={eventHandler}></input><br/>
-                        <label class='pl-2 pr-2'>Fire ring removal</label>
+                        <label className='pl-2 pr-2'>Fire ring removal</label>
                         <input type='checkbox' name="needFireRingRemoval"onChange={eventHandler}></input><br/><br/>
                 </div>
 
                     
-                    <div class="form-group grouped">
+                    <div className="form-group grouped">
                         <h4>Actions taken</h4><br/>    
-                            <label class='pl-2 pr-2'>Trash pickup</label>
+                            <label className='pl-2 pr-2'>Trash pickup</label>
                             <input type='checkbox' name="doneTrashPickup"  onChange={eventHandler}></input><br/>
-                            <label class='pl-2 pr-2'>Signage fix</label>
+                            <label className='pl-2 pr-2'>Signage fix</label>
                             <input type='checkbox' name="doneSignageFix"onChange={eventHandler}></input><br/>
-                            <label class='pl-2 pr-2' >Containment repair</label>
+                            <label className='pl-2 pr-2' >Containment repair</label>
                             <input type='checkbox' name="doneContainmentRepair"onChange={eventHandler}></input><br/>
-                            <label class='pl-2 pr-2'>Fire ring removal</label>
+                            <label className='pl-2 pr-2'>Fire ring removal</label>
                             <input type='checkbox' name="doneFireRingRemoval"onChange={eventHandler}></input><br/>
                     </div>
             </div>
 
-            <div class='flex'>
-                <div class="form-group grouped">
+            <div className='flex'>
+                <div className="form-group grouped">
                     <label>Todays Date</label><br/>
-                    <input name='date' class='m-2' type='date' onChange={eventHandler}></input><br/>
+                    <input name='date' className='m-2' type='date' onChange={eventHandler}></input><br/>
 
-                    <label class='pt-2'>Hours spent</label><br/>
-                    <input name='hours' class='m-2' type='number' placeholder='Hours spent'onChange={eventHandler}></input><br/>
+                    <label className='pt-2'>Hours spent</label><br/>
+                    <input name='hours' className='m-2' type='number' placeholder='Hours spent'onChange={eventHandler}></input><br/>
             </div>
-                <div class="form-group grouped">
+                <div className="form-group grouped">
                     <label >Notes</label><br/>
-                    <textarea name='notes' class='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
+                    <textarea name='notes' className='m-2' placeholder='notes' rows='4' onChange={eventHandler}></textarea><br/>
                 </div>
             </div >
 
@@ -358,8 +357,8 @@ function Survey() {
             <MapContainer setAnswers={setAnswers} answers={answers}/> 
             <div id='mapInsert'></div>             
 
-            <div class='centerText'>
-                <Button disabled={buttonDisabled} className='button'color='primary'><span class='btnText'>Submit</span></Button>
+            <div className='centerText'>
+                <Button disabled={buttonDisabled} className='button'color='primary'><span className='btnText'>Submit</span></Button>
             </div> 
             </div>
             </div>

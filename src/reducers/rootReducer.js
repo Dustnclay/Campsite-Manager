@@ -469,7 +469,6 @@ needTrashPickup:[
 }  
 
 function populateTotal (responseForms){
-  console.log("responseForms in Front end reducer",responseForms)
   const tempstate = {
     contained:[
       {name: 'No', 
@@ -942,7 +941,6 @@ export const rootReducer = (state = initialState, action) => {
             const siteArr = [...new Set(locationArr)]
             const tempArr = [...new Set(locationArr)]
             const gMapArr = []
-            const mapArr = []
             savedData.map(item => {
               if(tempArr.includes(item.location)){
                 gMapArr.push(item)
@@ -961,8 +959,6 @@ export const rootReducer = (state = initialState, action) => {
             };   
 
         case FETCH_SITE_FAIL:
-          console.log("FETCH_FORMS_fail")
-          console.log(action.payload)
             return{
                 ...state,
                 err:'fetchSite fail',
@@ -997,13 +993,10 @@ export const rootReducer = (state = initialState, action) => {
           };
 
         case FETCH_FORMS_SUCCESS:
-            console.log("FETCH_FORMS_Success")
-            console.log("action payload success",action.payload.data)
             const responseForms = action.payload.data
             
 
             const afterPopTote = populateTotal (responseForms)
-            console.log("afterPopTote",afterPopTote)
 
 
             return{
@@ -1035,14 +1028,13 @@ export const rootReducer = (state = initialState, action) => {
             };        
         
         case FETCH_FORMS_FAIL:
-            console.log("FETCH_FORMS_fail")
-            console.log(action.payload)
 
             return{
                 ...state,
                 err:'',
                 isFetching:false
-            };              
+            };   
+        default:
 
     }
     

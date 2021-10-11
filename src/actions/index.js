@@ -16,7 +16,6 @@ export const getSite = () => dispatch => {
             dispatch({ type: FETCH_SITE_SUCCESS, payload:resp})
         })
         .catch(err => {
-            console.log('error in fail',err)
             dispatch({ type: FETCH_SITE_FAIL, payload:err})
         })
 } 
@@ -38,7 +37,6 @@ export const getForms = (siteNo) => dispatch => {
             dispatch({ type: FETCH_FORMS_SUCCESS, payload:resp})
         })
         .catch(err => {
-            console.log('error in fail',err)
             dispatch({ type: FETCH_FORMS_FAIL, payload:err})
         })
 } 
