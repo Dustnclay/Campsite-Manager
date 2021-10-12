@@ -89,7 +89,6 @@ function Survey() {
         image:'',
         latlng:0
     })
-
     const formSchema = yup.object().shape({
         location:yup.string().required("location required"),
         collector:yup.string().required("name required"),
@@ -353,7 +352,7 @@ function Survey() {
                 </div>
             </div >
 
-            <h4 className='centerText'>Drag the pin to your campsite location</h4>
+            <h4 className='centerText'>Click or drag the pin to your campsite location</h4>
             <MapContainer setAnswers={setAnswers} answers={answers}/> 
             <div id='mapInsert'></div>             
 

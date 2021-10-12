@@ -24,7 +24,9 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
               showingInfoWindow: true
             })};
         
-          onMapClicked = (props) => {
+          onMapClicked = (x,y,Lat) => {
+            const lat = Lat.latLng.lat()
+            const lng = Lat.latLng.lng()
 
             if (this.state.showingInfoWindow) {
               this.setState({
@@ -32,6 +34,14 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
                 activeMarker: null
               })
             }
+
+            if(this.props.setAnswers){
+            this.props.setAnswers({
+              ...this.props.answers, 
+              latlng:{lat,lng}
+          })              
+            }
+
           };
 
         onMarkerDragEnd = (coord) => {
@@ -76,10 +86,11 @@ import { Map, GoogleApiWrapper, Marker, InfoWindow } from 'google-maps-react';
                         })   
                         
                         :
-                        
                         <Marker 
+                        
                         draggable={true}
                         name={'latlng'} 
+                        position={this.props.answers.latlng}
                         onDragend={(t, map, coord) => this.onMarkerDragEnd(coord)}
                         /> }
                 </Map>
